@@ -76,16 +76,17 @@ Note that the rankings are based on my opinion, algorithm availability in crypto
 
 - [ Cryptographic Libraries ]( ./Sections/Libraries.md )
 - [ Symmetric Encryption ]( ./Sections/Symmetric%20Encryption.md )
-- [ Message Authentication Codes ]( ./Sections/Message%20Authentication.md )
-- [ Symmetric Key Size ]( ./Sections/Symmetric%20Keys.md )
+- [ Message Authentication ]( ./Sections/Message%20Authentication.md )
 - [ Random Numbers ]( ./Sections/Random%20Numbers.md )
 - [ Hashing ]( ./Sections/Hashing.md )
-- [ Password Hashing / Password Based Key Derivation ]( ./Sections/Key%20Derivation%20-%20Password.md )
-- [ Non-Password Based Key Derivation Functions ]( ./Sections/Key%20Derivation%20-%20NonPassword.md )
 - [ Key Exchange / Hybrid Encryption ]( ./Sections/Hybrid%20Encryption.md )
 - [ Digital Signatures ]( ./Sections/Digital%20Signatures.md )
-- [ Asymmetric Key Size ]( ./Sections/Asymmetric%20Keys.md )
-
+- **Key Derivation**
+    - [ Password Based ]( ./Sections/Key%20Derivation%20-%20Password.md )
+    - [ Non-Password ]( ./Sections/Key%20Derivation%20-%20NonPassword.md )
+- **Key Sizes**
+    - [ Symmetric ]( ./Sections/Symmetric%20Keys.md )
+    - [ Asymmetric ]( ./Sections/Asymmetric%20Keys.md )
 ---
 
 ## Concluding Remarks

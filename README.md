@@ -23,14 +23,13 @@
 [ Search Functionality ]: https://doc.libsodium.org/
 [ Professional Mistakes ]: https://github.com/agl/ed25519/issues/27
 [ Missed Mistakes ]: https://github.com/str4d/rage/issues/195
+[ Cryptography Guidelines ]: https://github.com/samuel-lucas6/Cryptography-Guidelines
+[ Contribute ]: ./CONTRIBUTE.md
 
 
 # Cryptography Guidelines
 
-This work is licensed under a [Creative Commons Attribution-ShareAlike 4.0 International License][ License ] because it took bloody ages to write.
-<br>
-<br>
-![Creative Commons License Icon][ Creative Commons ]
+This is a **formatted** version of the [ Cryptography Guidelines ].
 
 
 ---
@@ -46,14 +45,6 @@ My goal with these guidelines is to provide a resource that I wish I had access 
 ## Acknowledgments
 
 These guidelines were inspired by [this][ Inspiration ] Cryptographic Best Practices gist, Latacora's [Cryptographic Right Answers][ Latacora ], and [Crypto Gotchas][ Gotchas ], which is licensed under the [Creative Commons Attribution 4.0 International License][ License ]. The difference is that I mention newer algorithms and have tried to justify my algorithm recommendations whilst also offering important notes about using them correctly.
-
----
-
-## Contribute
-
-If you find these guidelines helpful, please **star** this repository and **share** the link around. Doing so might just prevent someone from making a catastrophic mistake.
-
-If you have any **feedback**, please **contact me** privately [here][ Samuel ] or publicly [here][ Discussions ] to help improve these guidelines. [Pull requests][ Pull Request ] are also welcome but please be prepared for things to be reworded.
 
 ---
 
@@ -106,3 +97,8 @@ I believe there are three main areas of improvement when it comes to individuals
 2. People **should** stop saying 'don't roll your own crypto': **repeating this phrase doesn't help anyone**. Instead, educate developers about how to do things properly, whether that be by answering questions on [Cryptography Stack Exchange][ Stack Exchange ] in an understandable manner, writing a [blog](https://soatok.blog/), or replying to emails from people asking for help. It's not a crime to implement Encrypt-then-MAC, and even when someone writes a custom cipher, **you should explain why that's not a good idea** (e.g. 'professional cryptographers still design insecure algorithms').
 
 3. There **should** be more peer review: it's often difficult to receive peer review, impossible to fund a bug bounty program with cash rewards, and extremely unlikely for projects to get funding for a code audit. Whilst developers who fail to do any reading related to cryptography obviously deserve criticism, [even experienced professionals make mistakes][ Professional Mistakes ]. Simple peer review (e.g. using the search on GitHub for things like 'HMAC' and 'ECB') helps catch things that are easy to spot, and more thorough peer review helps catch things that even someone experienced [might have missed][ Missed Mistakes ]. If something seems dodgy, then you should investigate if possible.
+
+
+## Repository Info
+
+「[ License ]」 「[ Contribute ]」

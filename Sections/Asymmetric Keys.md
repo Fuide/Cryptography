@@ -32,7 +32,7 @@ security level curve considering that `128-bit security` is currently enough.
 
 ### 456-bit
 
-The key size for X448, which provides a `224-bit security` level.
+The key size for **X448**, which provides a `224-bit security` level.
 
 ---
 

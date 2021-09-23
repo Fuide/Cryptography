@@ -4,9 +4,6 @@
 [ Inspiration ]: https://gist.github.com/atoponce/07d8d4c833873be2f68c34f9afc5a78a#file-gistfile1-md
 [ Latacora ]: https://latacora.singles/2018/04/03/cryptographic-right-answers.html
 [ Gotchas ]: https://github.com/SalusaSecondus/CryptoGotchas
-[ Samuel ]: https://samuellucas.com/
-[ Discussions ]: https://github.com/samuel-lucas6/Cryptography-Guidelines/discussions
-[ Pull Request ]: https://github.com/samuel-lucas6/Cryptography-Guidelines/pulls
 [ Libsodium ]: https://doc.libsodium.org/
 [ TLS1.3 ]: https://www.davidwong.fr/tls13/
 [ Noise Protocol ]: https://noiseprotocol.org/noise.html
@@ -28,9 +25,11 @@
 
 
 # Cryptography Guidelines
+<br>
 
-This is a **formatted** version of the [ Cryptography Guidelines ].
+This is a **formatted** version of the
 
+[![ReadMe Card](https://github-readme-stats.vercel.app/api/pin/?username=samuel-lucas6&repo=Cryptography-Guidelines)][ Cryptography Guidelines ]
 
 ---
 

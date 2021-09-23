@@ -32,45 +32,140 @@
 
 
 
-## Hashing
+# Hashing
 
+<br>
+<br>
+<br>
 
-#### Use 「 Ordered 」
+## Use 「 Ordered 」
 
-1. [BLAKE2b-512][ General Hashing ] or [BLAKE2b-256][ General Hashing ]: fast, modern, as [real-world secure][ IRL Secure ] as SHA3, BLAKE (what BLAKE2 was on) received a [significant amount of cryptanalysis][ Significant Analysis ], even more than Keccak (the SHA3 finalist), as part of the SHA3 competition, and now quite popular in software (e.g. it’s used in [Argon2][ Introduction ] and many [other][ Blake2 ] password hashing schemes).
+<br>
 
-2. [SHA512][ SHA Comparison ], [SHA512/256][ SHA Comparison ], or [SHA256][ SHA Comparison ]: SHA2 is the most popular hash function, meaning it’s widely available in cryptographic libraries, it’s still secure besides [length extension attacks][ Length Extension Attack ] (please see point 3 of the Notes section), and it offers decent performance.
+### [BLAKE2b-512][ General Hashing ] | [BLAKE2b-256][ General Hashing ]
 
-3. [SHA3-512][ SHA 3 Comparison  ] or [SHA3-256][ SHA 3 Comparison  ]: [slow][ Slow SHA3 ] in software, but the [new standard][ New Standard ], [fast][ Fast SHA3 ] in hardware, and has a [higher security margin][ Security Margin ] than the other algorithms listed here. If it was more common in software, then I would recommend it over SHA2 to prevent length extension attacks, but I’d still recommend BLAKE2b in such a case due to the improved software performance and equivalent security.
+- Fast
+- Modern
+- As [real-world secure][ IRL Secure ] as SHA3
 
-4. [BLAKE3-256][ Blake3 ]: the [fastest][ Blake3 Specs ] cryptographic hash in software (assuming you don’t suffer from [performance issues in the main implementation][ Blake3 Implementation ]) at the cost of having a [lower security margin][ Blake3 Specs ] and being limited to a [128-bit security level][ Blake3 Specs ]. However, it improves on BLAKE2 in that there’s only one variant that covers all use cases (it’s a regular hash, PRF, MAC, KDF, and XOF), but depending on the cryptographic library you use, this isn’t necessarily something you’ll notice when using BLAKE2b anyway.
-
-
----
-
-#### Avoid 「 Unordered | All Unsuitable 」
-
-- **Non-cryptographic** hash functions and error-detecting codes (e.g. [CRC][ Cycling Redundancy ]): the clue is in the name. These are **not secure**.
-
-- [MD5][ MD5 ] and [SHA1][ SHA1 ]: both are very old and **no longer secure**. For instance, there’s an [attack][ MD5 Collision ] that breaks MD5 collision resistance in 2^18 time. This takes less than a second to execute on an ordinary computer.
-
-- **Insecure** SHA3 competition candidates (e.g. [EDON-R][ SHA3 Candidates ]): if you want to use something from the SHA3 competition, then you should either use BLAKE2b (based on BLAKE, which was thoroughly analysed and deemed to have a [very high security margin][ Significant Analysis ]), SHA3 (the winner, very different to SHA2 in design, and has a [very high security margin][ Significant Analysis ]), or BLAKE3 (based on BLAKE2 but with a [lower security margin][ Blake3 Specs ]).
-
-- [RIPEMD][ RIPEMD ]: old, unpopular, most implementations are limited to small output lengths (e.g. 160-bit is the most common), and it has worse performance and has received less analysis compared to the recommended algorithms.
-
-- [Whirlpool][ Whirlpool ], [SHA224][ SHA Comparison ], [Streetbog][ Streetbog ], [MD6][ MD6 ], and other hashes nobody uses: these are all worse in one way or another than the recommended algorithms, which is why nobody uses them. For instance, Whirlpool is [slower][ Benchmark ] than most other cryptographic hash functions, SHA224 only provides [112-bit collision resistance][ SHA Comparison ], which is below the recommended 128-bit security level, Streetbog has a [poor S-Box design with no design rational ever being made public][ S-Box Design ], MD6 didn't make it to the [second round][ SHA3 ] of the SHA3 competition and has [speed issues][ MD6 ], and so on.
-
-- Chaining hash functions (e.g. `SHA256(SHA1(message))`): this can be **insecure** (e.g. SHA1 has worse collision resistance than SHA256, meaning a collision for SHA1 results in a collision for `SHA256(SHA1(message))`) and is obviously less efficient than hashing once. **Just don’t do this**.
-
-- 128-bit hashes: you shouldn’t go below a 256-bit output with hash functions to ensure 128-bit security.
-
+**BLAKE** (what **BLAKE2** was on) received a [significant amount of cryptanalysis][ Significant Analysis ], even more than **Keccak**<br>
+(the **SHA3** finalist), as part of the **SHA3** competition, and now quite popular in software<br>
+(e.g. it’s used in [Argon2][ Introduction ] and many [other][ Blake2 ] password hashing schemes).
 
 ---
 
-#### Notes
+### [SHA512][ SHA Comparison ] | [SHA512/256][ SHA Comparison ] | [SHA256][ SHA Comparison ]
 
-1. **These hash functions are not suitable for password hashing**: these algorithms are fast, whereas password hashing needs to be slow to prevent [bruteforce attacks][ Password Cracking ]. Furthermore, password hashing requires using a **random** salt for each password to derive unique hashes when given the same input and to protect against attacks using [precomputed hashes][ Rainbow Tables ].
+**SHA2** is the most popular hash function, meaning it’s widely available in cryptographic libraries,<br>
+it’s still secure besides [length extension attacks][ Length Extension Attack ] (please see point 3 of the Notes section)<br>
+and it offers decent performance.
 
-2. **These unkeyed hash functions are not suitable for authentication**: you need to use [MACs][ MAC ] (please see the [Message Authentication Codes](./Message Authentication.md) section), such as keyed BLAKE2b-512 and HMAC-SHA512, for authentication because they provide the [appropriate security guarantees][ MAC Security ].
+---
 
-3. **SHA2** (except for SHA512/256 – SHA224 and SHA384 [don’t provide the same level of protection][ SHA Comparison ]), MD5, SHA1, Whirlpool, RIPEMD-160, and MD4 are [susceptible to length extension attacks][ Length Extension Attack ]: an attacker can use `Hash(message1)` and the length of `message1` to calculate `Hash(message1 || message2)`, with `message2` being controlled by the attacker, without knowing what `message1` is. Therefore, **concatenating things (e.g. `Hash(secret || message)`) with these algorithms is a bad idea**. Instead, BLAKE2b, SHA512/256, HMAC-SHA2, SHA3, HMAC-SHA3, or BLAKE3 should be used because none of these are susceptible to length extension attacks. Also, please read point 5 of the [Message Authentication Codes](./Message Authentication.md) Notes section because concatenating parameters incorrectly can lead to another type of attack.
+### [SHA3-512][ SHA 3 Comparison  ] | [SHA3-256][ SHA 3 Comparison  ]
+
+[slow][ Slow SHA3 ] in software, but the [new standard][ New Standard ], [fast][ Fast SHA3 ] in hardware, and has a [higher security margin][ Security Margin ] than<br>
+the other algorithms listed here. If it was more common in software, then I would recommend it<br>
+over **SHA2** to prevent length extension attacks, but I’d still recommend **BLAKE2b** in such a case<br>
+due to the improved software performance and equivalent security.
+
+---
+
+### [BLAKE3-256][ Blake3 ]
+
+The [fastest][ Blake3 Specs ] cryptographic hash in software (assuming you don’t suffer from [performance issues in the main implementation][ Blake3 Implementation ])<br>
+at the cost of having a [lower security margin][ Blake3 Specs ] and being limited to a [128-bit security level][ Blake3 Specs ]. However, it improves on **BLAKE2**<br>
+in that there’s only one variant that covers all use cases (it’s a regular **hash**, **PRF**, **MAC**, **KDF**, and **XOF**), but depending on<br>
+the cryptographic library you use, this isn’t necessarily something you’ll notice when using **BLAKE2b** anyway.
+
+
+<br>
+<br>
+<br>
+
+## Avoid 「 Unordered | All Unsuitable 」
+
+<br>
+
+### **Non-cryptographic** Hash Functions & Error-Detecting Codes
+
+Such as [CRC][ Cycling Redundancy ]. The clue is in the name, these are **not secure**.
+
+---
+
+### [MD5][ MD5 ] | [SHA1][ SHA1 ]
+
+Both are very old and **no longer secure**. For instance, there’s an [attack][ MD5 Collision ] that breaks **MD5** collision resistance<br>
+in `2 ^ 18` time. This takes less than a second to execute on an ordinary computer.
+
+---
+
+### **Insecure** SHA3 Competition Candidates
+
+(e.g. [EDON-R][ SHA3 Candidates ]) If you want to use something from the **SHA3** competition, then you should either use **BLAKE2b**<br>
+(based on **BLAKE**, which was thoroughly analysed and deemed to have a [very high security margin][ Significant Analysis ]),<br>
+SHA3 (the winner, very different to **SHA2** in design, and has a [very high security margin][ Significant Analysis ]),<br>
+or **BLAKE3** (based on **BLAKE2** but with a [lower security margin][ Blake3 Specs ]).
+
+---
+
+### [RIPEMD][ RIPEMD ]
+
+- Old
+- Unpopular
+- Most implementations are limited to small output lengths (e.g. **160-bit** is the most common)
+- Worse performance
+- Has received less analysis compared to the recommended algorithms.
+
+---
+
+### [Whirlpool][ Whirlpool ] | [SHA224][ SHA Comparison ] | [Streetbog][ Streetbog ] | [MD6][ MD6 ] | and other hashes nobody uses
+
+These are all worse in one way or another than the recommended algorithms, which is why nobody uses them.<br>
+For instance, Whirlpool is [slower][ Benchmark ] than most other cryptographic hash functions, **SHA224** only provides [112-bit collision resistance][ SHA Comparison ],<br>
+which is below the recommended `128-bit security` level, **Streetbog** has a [poor S-Box design with no design rational ever being made public][ S-Box Design ],<br>
+**MD6** didn't make it to the [second round][ SHA3 ] of the **SHA3** competition and has [speed issues][ MD6 ], and so on.
+
+---
+
+### Chaining Hash Functions
+
+Such as `SHA256(SHA1(message))`. This can be **insecure** (e.g. **SHA1** has worse collision resistance than **SHA256**,<br>
+    meaning a collision for **SHA1** results in a collision for `SHA256(SHA1(message))`) and is obviously less efficient<br>
+    than hashing once. **Just don’t do this**.
+
+---
+
+### 128-bit Hashes
+
+You shouldn’t go below a **256-bit** output with hash functions to ensure **128-bit** security.
+
+
+<br>
+<br>
+<br>
+
+## Notes
+
+<br>
+
+1. **These hash functions are not suitable for password hashing**<br><br>
+These algorithms are fast, whereas password hashing needs to be slow to prevent [bruteforce attacks][ Password Cracking ].<br>
+Furthermore, password hashing requires using a **random** salt for each password to derive unique<br>
+hashes when given the same input and to protect against attacks using [precomputed hashes][ Rainbow Tables ].
+
+---
+
+2. **These unkeyed hash functions are not suitable for authentication**<br><br>
+You need to use [MACs][ MAC ] (please see the [Message Authentication Codes](./Message%20Authentication.md) section), such as keyed **BLAKE2b-512**<br>
+and **HMAC-SHA512**, for authentication because they provide the [appropriate security guarantees][ MAC Security ].
+
+---
+
+3. **SHA2** (except for **SHA512/256** – **SHA224** and **SHA384** [don’t provide the same level of protection][ SHA Comparison ]), **MD5**, **SHA1**,<br>**Whirlpool**, **RIPEMD-160**, and **MD4** are [susceptible to length extension attacks][ Length Extension Attack ]: an attacker can use `Hash(message1)`<br>
+and the length of `message1` to calculate `Hash(message1 || message2)`, with `message2` being controlled<br>
+by the attacker, without knowing what `message1` is.<br><br>
+Therefore, **concatenating things (e.g. `Hash(secret || message)`) with these algorithms is a bad idea**.<br><br>
+Instead, **BLAKE2b**, **SHA512/256**, **HMAC-SHA2**, **SHA3**, **HMAC-SHA3**, or **BLAKE3** should be used because none<br>
+of these are susceptible to length extension attacks. Also, please read point 5 of the [Message Authentication Codes](./Message%20Authentication.md)<br>
+Notes section because concatenating parameters incorrectly can lead to another type of attack.

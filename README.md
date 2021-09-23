@@ -24,7 +24,7 @@
 [ Contribute ]: ./CONTRIBUTE.md
 
 
-# Cryptography Guidelines
+# Cryptography Implementation Guide
 #### 「[ License ]」 「[ Contribute ]」
 
 ---

@@ -159,7 +159,7 @@ These can be easily retrieved.
 ---
 
 3. For hybrid encryption, use one of the recommended key exchange algorithms above with one<br>
-of the recommended [symmetric encryption algorithms](./Symmetric%20Encryption.md)<br><br>
+of the recommended [symmetric encryption algorithms](./Symmetric%20Encryption)<br><br>
 For example, use **X25519** with **ChaCha20-Poly1305**.
 
 ---
@@ -167,7 +167,7 @@ For example, use **X25519** with **ChaCha20-Poly1305**.
 4. Use one of the recommended (non-password-based) KDFs on the shared secret<br>
 <br>**Shared secrets are not suitable for use as secret keys directly** because they aren't<br>
 uniformly random. Moreover, you should derive unique keys each time by using the salt<br>
-and context parameters, as explained in the [(Non-Password-Based) Key Derivation Functions](./Key%20Derivation%20-%20NonPassword.md) section.
+and context parameters, as explained in the [(Non-Password-Based) Key Derivation Functions](./Key%20Derivation%20-%20NonPassword) section.
 
 ---
 

@@ -157,7 +157,7 @@ hashes when given the same input and to protect against attacks using [precomput
 ---
 
 2. **These unkeyed hash functions are not suitable for authentication**<br><br>
-You need to use [MACs][ MAC ] (please see the [Message Authentication Codes](./Message%20Authentication.md) section), such as keyed **BLAKE2b-512**<br>
+You need to use [MACs][ MAC ] (please see the [Message Authentication Codes](./Message%20Authentication) section), such as keyed **BLAKE2b-512**<br>
 and **HMAC-SHA512**, for authentication because they provide the [appropriate security guarantees][ MAC Security ].
 
 ---
@@ -167,5 +167,5 @@ and the length of `message1` to calculate `Hash(message1 || message2)`, with `me
 by the attacker, without knowing what `message1` is.<br><br>
 Therefore, **concatenating things (e.g. `Hash(secret || message)`) with these algorithms is a bad idea**.<br><br>
 Instead, **BLAKE2b**, **SHA512/256**, **HMAC-SHA2**, **SHA3**, **HMAC-SHA3**, or **BLAKE3** should be used because none<br>
-of these are susceptible to length extension attacks. Also, please read point 5 of the [Message Authentication Codes](./Message%20Authentication.md)<br>
+of these are susceptible to length extension attacks. Also, please read point 5 of the [Message Authentication Codes](./Message%20Authentication)<br>
 Notes section because concatenating parameters incorrectly can lead to another type of attack.

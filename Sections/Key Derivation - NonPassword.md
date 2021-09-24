@@ -33,12 +33,12 @@
 [Restricted][ Blake 2 ] to a **128-bit** salt and **128-bit** (16 character) personalization parameter for domain separation,<br>
 which is annoying. However, you can feed more context information into the message parameter.<br><br>
 Besides the weird personal size limit, this is easier to use than **HKDF** because there’s only one function rather than three,<br>
-which can be confusing. Furthermore, please see the [Hashing](./Hashing.md) section for why **BLAKE2b** should be preferred over other<br>
+which can be confusing. Furthermore, please see the [Hashing](./Hashing) section for why **BLAKE2b** should be preferred over other<br>
 hash functions. If there's no KDF variant of **BLAKE2b** available in your library, then you should probably use **HKDF**<br>
 (please see below).<br><br>
 However, **if you know what you're doing**, you can construct a **BLAKE2b KDF** using<br><br>
 `BLAKE2b(message: salt || info || saltLength || infoLength, key: inputKeyingMaterial)`<br><br>
-with the `saltLength` and `infoLength` parameters being encoded as specified in point **5**<br>of the [Message Authentication Codes](./Message%20Authentication.md) Notes section.<br><br>Like **HKDF**, this custom approach allows for salt and info parameters of practically any length.
+with the `saltLength` and `infoLength` parameters being encoded as specified in point **5**<br>of the [Message Authentication Codes](./Message%20Authentication) Notes section.<br><br>Like **HKDF**, this custom approach allows for salt and info parameters of practically any length.
 
 ---
 
@@ -46,7 +46,7 @@ with the `saltLength` and `infoLength` parameters being encoded as specified in 
 
 The most popular **KDF** with support for a larger salt and lots of context information. However,<br>
 people get confused about the difference between the Expand and Extract functions, it doesn’t require<br>a salt despite it being [recommended and beneficial for security][ RFC5869 ], and it’s slower than salted **BLAKE2b**.<br><br>
-Please see the [Hashing](./Hashing.md) and [Message Authentication Codes](./Message%20Authentication.md) sections<br>
+Please see the [Hashing](./Hashing) and [Message Authentication Codes](./Message%20Authentication) sections<br>
 for a comparison between **SHA2** / **SHA3** and **HMAC-SHA2** / **HMAC-SHA3**.
 
 ---

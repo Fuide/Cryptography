@@ -137,7 +137,7 @@ Secondly, not using a password-based **KDF** with a random salt means **attacker
 **These are not suitable for password hashing** because they’re not slow, which allows for **fast bruteforce attacks**.<br>
 Password hashing also requires using a salt to protect against attacks using precomputed hashes and to prevent<br>
 the same password always having the same hash. However, adding a salt to certain regular hash functions,<br>
-such as **SHA2**, can lead to [length extension attacks][ Length Extension Attack ], as discussed in point 3 of the Notes in the [Hashing](./Hashing.md) section.
+such as **SHA2**, can lead to [length extension attacks][ Length Extension Attack ], as discussed in point 3 of the Notes in the [Hashing](./Hashing) section.
 
 ---
 
@@ -224,7 +224,7 @@ then you can afford longer delays like 3-5 seconds.
 Strings are immutable (unchangeable) in many programming languages (e.g. **C#**, **Java**, **JavaScript**, **Go**, .. ),<br>
 meaning they can’t be zeroed out from memory. Instead, use a char array if possible and convert that into<br>
 a byte array for password hashing/password-based key derivation. Then erase both arrays from memory<br> after you’ve finished using them.<br><br>
-Note that this is also difficult in many programming languages, as explained in point **7** of the [Symmetric Encryption](./Symmetric%20Encryption.md)<br>
+Note that this is also difficult in many programming languages, as explained in point **7** of the [Symmetric Encryption](./Symmetric%20Encryption)<br>
 Notes section, but *attempting* to erase sensitive data from memory is better than doing nothing.
 
 ---

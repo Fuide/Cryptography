@@ -30,47 +30,149 @@
 
 
 
-## Cryptographic Libraries
+# Cryptographic Libraries
 
+<br>
+<br>
+<br>
 
-#### Use 「 Ordered 」
+## Use 「 Ordered 」
 
-1. [Libsodium][ Libsodium ]: a modern, extremely fast, easy-to-use, well documented, and [audited][ Audits ] library that covers all common use cases, except for implementing TLS. However, it’s much bigger than Monocypher, meaning it’s harder to audit and not suitable for constrained environments, and sometimes requires the [Visual C++ Redistributable][ C++ Requirements ] to work on Windows.
+<br>
 
-2. [Monocypher][ Monocypher ]: another modern, easy-to-use, well documented, and [audited][ Monocypher Audit ] library, but it’s about [half][ Monocypher Speed ] the speed of libsodium on desktops/servers, has no misuse resistant functions (e.g. like libsodium’s [secretstream()][ Secret Stream ] and [secretbox()][ SecretBox ]), only supports Argon2i for password hashing, allowing for insecure parameters (please see the [Password Hashing/Password-Based Key Derivation](./Key Derivation - Password.md) Notes section), and offers no memory locking, random number generation, or convenience functions (e.g. Base64/hex encoding, padding, etc). However, it’s compatible with libsodium whilst being much smaller, portable, and fast for constrained environments (e.g microcontrollers).
+### [Libsodium][ Libsodium ]
 
-3. [Tink][ Tink ]: a misuse resistant library that prevents common pitfalls like nonce reuse. However, it doesn’t support hashing or password hashing, it’s not available in as many programming languages as libsodium and Monocypher, and it provides access to some algorithms that you shouldn’t use.
+- Modern
+- Extremely fast
+- Easy to use
+- Well documented
 
-4. [LibHydrogen][ LibHydrogen ]: a lightweight, easy-to-use, hard-to-misuse, and well documented library suitable for constrained environments. The downsides are that it's not compatible with libsodium whilst also running [slower][ Monocypher Speed ] than Monocypher. However, it has some advantages over Monocypher like support for random number generation, even on Arduino boards, and easy access to key exchange patterns, among other things.
-
-
----
-
-#### Avoid 「 Ordered 」
-
-1. A random library (with 0 stars) on GitHub: assuming it’s not been written by an experienced professional and it’s not a libsodium or Monocypher [binding][ NSEC ] to another programming language, you should generally stay away from unpopular, unaudited libraries. They are much more likely to suffer from vulnerabilities and be significantly slower than the more popular, audited libraries. Also, note that even [experienced professionals make mistakes][ Professional Mistakes ].
-
-2. [OpenSSL][ OpenSSL ]: very difficult to use, let alone use correctly, offers access to algorithms that you shouldn't use, the documentation is a mess, and lots of [vulnerabilities][ OpenSSL Vulnerabilities ] have been found over the years. These issues have led to OpenSSL [forks][ OpenSSL Forks ] and new, non-forked [libraries][ BearSSL ] that aim to be better alternatives if you need to implement TLS.
-
-3. The library available in your [programming language][ Programming Language ]: most languages provide access to old algorithms (e.g. MD5 and SHA1) that shouldn’t be used anymore instead of newer ones (e.g. BLAKE2, BLAKE3, and SHA3), which can lead to poor algorithm choices. Furthermore, the APIs are typically easy to misuse, the documentation may fail to mention important security related information, and the implementations will be slower than libsodium.
-
-4. Other popular libraries I haven’t mentioned (e.g. [BouncyCastle][ Bouncy Castle ], [CryptoJS][ CryptoJS ], etc): these again often provide or rely on dated algorithms and typically have bad documentation. For instance, CryptoJS uses an [insecure][ CryptoJS Insecure ] KDF called [EVP_BytesToKey()][ EVP_BytesToKey ] in OpenSSL when you pass a string password to AES.encrypt(), and BouncyCastle has no C# documentation. However, this recommendation is too broad really since there are *some* libraries that I haven't mentioned that are worth using, like [PASETO][ PASETO ]. Therefore, as a rule of thumb, **if it doesn't include several of the algorithms I recommend in this document, then it's probably bad**. Just do your research and assess the quality of the documentation.
-
-5. [NaCl][ NaCL ]: an unmaintained, less modern, and more confusing version of libsodium and Monocypher. For example, crypto_sign() for digital signatures has been [experimental][ NaCL Experimental ] for several years. It also doesn’t have password hashing support and is supposedly [difficult to install/package][ Monocypher Why ].
-
-6. [TweetNaCl][ TweetNaCl ]: unmaintained, [slower][ Monocypher Speed ] than Monocypher, doesn’t offer access to newer algorithms, doesn’t have password hashing, and [doesn’t zero out buffers][ Monocypher Why ].
-
+[Audited][ Audits ] library that covers all common use cases, except for implementing TLS.<br>
+However, it’s much bigger than Monocypher, meaning it’s harder to audit and not<br>suitable for constrained environments, and sometimes requires the<br>
+[Visual C++ Redistributable][ C++ Requirements ] to work on Windows.
 
 ---
 
-#### Notes
+### [Monocypher][ Monocypher ]
 
-1. If the library you’re currently using/planning to use doesn’t support several of the algorithms I’m recommending, then it’s time to upgrade and take advantage of the improved security and performance benefits available to you if you switch.
+- Modern
+- Easy to use
+- Well documented
 
-2. Please read the documentation: don’t immediately jump into coding something because that’s how mistakes are made. Good libraries have high quality documentation that will explain potential security pitfalls and how to avoid them.
+[Audited][ Monocypher Audit ] library, but it’s about [half][ Monocypher Speed ] the speed of libsodium on desktops/servers, has no misuse resistant<br>
+functions (e.g. like libsodium’s [secretstream()][ Secret Stream ] and [secretbox()][ SecretBox ]), only supports Argon2i for password hashing,<br>
+allowing for insecure parameters (please see the [Password Hashing/Password-Based Key Derivation](./Key%20Derivation%20-%20Password) Notes section),<br>
+and offers no memory locking, random number generation, or convenience functions (e.g. Base64/hex encoding, padding, etc).<br><br>
+However, it’s compatible with libsodium whilst being much smaller,<br>
+portable, and fast for constrained environments (e.g microcontrollers).
 
-3. Some libraries release unauthenticated plaintext when using AEADs: for example, OpenSSL and BouncyCastle [apparently do][ Gotchas ]. Firstly, don’t use these libraries for this reason and the reasons I’ve already listed. Secondly, **never do anything with unauthenticated plaintext; ignore it to be safe**.
+---
 
-4. Older does not mean better: you can argue that older algorithms are more battle tested and therefore proven to be a safe choice, but the reality is that most modern algorithms, like ChaCha20, BLAKE2, and Argon2, have been properly analysed at this point and shown to offer security and performance benefits over their older counterparts. Therefore, it doesn’t make sense to stick to this overly cautious mindset of avoiding newer algorithms, except for algorithms that are still candidates in a [competition][ Post Quantum Cryptography ] (e.g. new post-quantum algorithms), which do need further analysis to be considered safe.
+### [Tink][ Tink ]
 
-5. You should prioritise speed: this can make a noticeable difference for the user. For example, a C# Argon2 library is not going to even come close to the speed of Argon2 in libsodium, meaning unnecessary and unwanted extra delay during key derivation. Libsodium is the go-to for speed on desktops/servers, and Monocypher is the go-to for constrained environments (e.g. microcontrollers).
+A misuse resistant library that prevents common pitfalls like nonce reuse. <br><br>However, it doesn’t support hashing or password hashing, it’s not available<br>in as many programming languages as **Libsodium** and **Monocypher**, and it<br>provides access to some algorithms that you shouldn’t use.
+
+---
+
+### [LibHydrogen][ LibHydrogen ]
+
+- Lightweight
+- Easy to use
+- Hard to misuse
+- Well documented
+- Suitable for most environments
+
+The downsides are that it's not compatible with **Libsodium** whilst also running [slower][ Monocypher Speed ] than **Monocypher**.<br>
+However, it has some advantages over **Monocypher** like support for random number generation, even<br>
+on **Arduino** boards, and easy access to key exchange patterns, among other things.
+
+<br>
+<br>
+<br>
+
+## Avoid 「 Ordered 」
+
+<br>
+
+### A random library (with 0 stars) on GitHub
+
+Assuming it’s not been written by an experienced professional and it’s not a **Libsodium** or **Monocypher** [binding][ NSEC ]<br>to another programming language, you should generally stay away from unpopular, unaudited libraries.
+
+They are much more likely to suffer from vulnerabilities and be significantly slower than the more popular,<br> audited libraries. Also, note that even [experienced professionals make mistakes][ Professional Mistakes ].
+
+---
+
+### [OpenSSL][ OpenSSL ]
+
+Very difficult to use, let alone use correctly, offers access to algorithms that you shouldn't use,<br>the documentation is a mess, and lots of [vulnerabilities][ OpenSSL Vulnerabilities ] have been found over the years.
+
+These issues have led to **OpenSSL** [forks][ OpenSSL Forks ] and new, non-forked [libraries][ BearSSL ]<br>that aim to be better alternatives if you need to implement **TLS**.
+
+---
+
+### The library available in your [programming language][ Programming Language ]
+
+Most languages provide access to old algorithms (e.g. **MD5** and **SHA1**) that shouldn’t be used anymore instead<br>of newer ones (e.g. **BLAKE2**, **BLAKE3**, and **SHA3**), which can lead to poor algorithm choices. Furthermore, the APIs<br>are typically easy to misuse, the documentation may fail to mention important security related information, and<br>the implementations will be slower than libsodium.
+
+---
+
+### Other popular libraries ( [BouncyCastle][ Bouncy Castle ] | [CryptoJS][ CryptoJS ] | .. )
+
+These again often provide or rely on dated algorithms and typically have bad documentation.
+
+For instance, **CryptoJS** uses an [insecure][ CryptoJS Insecure ] **KDF** called [EVP_BytesToKey()][ EVP_BytesToKey ] in **OpenSSL** when you<br>pass a string password to `AES.encrypt()`, and **BouncyCastle** has no **C#** documentation.
+
+However, this recommendation is too broad really since there are *some* libraries that I haven't mentioned<br>that are worth using, like [PASETO][ PASETO ]. Therefore, as a rule of thumb, **if it doesn't include several of the<br>algorithms I recommend in this document, then it's probably bad**.
+
+Just do your research and assess the quality of the documentation.
+
+---
+
+### [NaCl][ NaCL ]
+
+- Unmaintained
+- Less modern
+- More confusing version of libsodium and Monocypher
+
+For example, `crypto_sign()` for digital signatures has been [experimental][ NaCL Experimental ] for several years.<br>
+It also doesn’t have password hashing support and is supposedly [difficult to install / package][ Monocypher Why ].
+
+---
+
+### [TweetNaCl][ TweetNaCl ]
+
+- Unmaintained
+- [Slower][ Monocypher Speed ] than Monocypher
+- Doesn’t offer access to newer algorithms
+- Doesn’t have password hashing
+- [Doesn’t zero out buffers][ Monocypher Why ]
+
+<br>
+<br>
+<br>
+
+## Notes
+
+<br>
+
+1. If the library you’re currently using/planning to use doesn’t support several of the algorithms I’m recommending,<br>then it’s time to upgrade and take advantage of the improved security and performance benefits available to you if you switch.
+
+---
+
+2. Please read the documentation<br><br>
+Don’t immediately jump into coding something because that’s how mistakes are made.<br>Good libraries have high quality documentation that will explain potential security pitfalls and how to avoid them.
+
+---
+
+3. Some libraries release unauthenticated plaintext when using **AEADs**<br><br>
+For example, **OpenSSL** and **BouncyCastle** [apparently do][ Gotchas ].<br>Firstly, don’t use these libraries for this reason and the reasons I’ve already listed. Secondly<br>**never do anything with unauthenticated plaintext; ignore it to be safe**.
+
+---
+
+4. Older does not mean better<br><br>
+You can argue that older algorithms are more battle tested and therefore proven to be a safe choice,<br>but the reality is that most modern algorithms, like **ChaCha20**, **BLAKE2**, and **Argon2**, have been properly analysed at this point and<br>shown to offer security and performance benefits over their older counterparts. Therefore, it doesn’t make sense to stick to this<br>overly cautious mindset of avoiding newer algorithms, except for algorithms that are still candidates in a [competition][ Post Quantum Cryptography ]<br>(e.g. new post-quantum algorithms), which do need further analysis to be considered safe.
+
+---
+
+5. You should prioritise speed<br><br>
+This can make a noticeable difference for the user. For example, a **C#*** **Argon2** library is not going to even<br>come close to the speed of **Argon2** in **Libsodium**, meaning unnecessary and unwanted extra delay during key derivation. **Libsodium**<br>is the go-to for speed on desktops / servers, and **Monocypher** is the go-to for constrained environments (e.g. microcontrollers).

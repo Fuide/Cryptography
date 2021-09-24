@@ -112,7 +112,7 @@ using [something like HMAC][ RFC6979 ].<br>
 <br>
 However, there’s been a shift to Ed25519 because it prevents this issue from happening<br>
 as well as being better in other respects. Furthermore, there’s also the concern mentioned<br>
-in the [Key Exchange/Hybrid Encryption](./Hybrid%20Encryption.md) Avoid section that the NIST curves use [unexplained seeds][ RFC8031 ],<br>which is [not a good look][ Bad Look ] considering that [Dual_EC_DRBG][ Dual DRBG ] was a NIST standard despite<br>
+in the [Key Exchange/Hybrid Encryption](./Hybrid%20Encryption) Avoid section that the NIST curves use [unexplained seeds][ RFC8031 ],<br>which is [not a good look][ Bad Look ] considering that [Dual_EC_DRBG][ Dual DRBG ] was a NIST standard despite<br>
 containing an [NSA backdoor][ NSA Backdoor ].
 
 ---
@@ -134,7 +134,7 @@ However, eventually it will make sense to switch to one in the future.
 
 <br>
 
-1. Please read points **1**, **2**, **9**, and **10** of the [Key Exchange/Hybrid Encryption Notes ](./Hybrid%20Encryption.md) section<br>
+1. Please read points **1**, **2**, **9**, and **10** of the [Key Exchange/Hybrid Encryption Notes ](./Hybrid%20Encryption) section<br>
 because all these points about key pairs/private keys apply for signature algorithms as well.
 
 ---

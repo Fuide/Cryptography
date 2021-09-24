@@ -21,7 +21,7 @@
 [ Professional Mistakes ]: https://github.com/agl/ed25519/issues/27
 [ Missed Mistakes ]: https://github.com/str4d/rage/issues/195
 [ Cryptography Guidelines ]: https://github.com/samuel-lucas6/Cryptography-Guidelines
-[ Contribute ]: ./CONTRIBUTE.md
+[ Contribute ]: ./CONTRIBUTE
 
 
 # Cryptography Implementation Guide
@@ -73,19 +73,19 @@ Note that the rankings are based on my opinion, algorithm availability in crypto
 
 ## Overview
 
-- [ Cryptographic Libraries ]( ./Sections/Libraries.md )
-- [ Symmetric Encryption ]( ./Sections/Symmetric%20Encryption.md )
-- [ Message Authentication ]( ./Sections/Message%20Authentication.md )
-- [ Random Numbers ]( ./Sections/Random%20Numbers.md )
-- [ Hashing ]( ./Sections/Hashing.md )
-- [ Key Exchange / Hybrid Encryption ]( ./Sections/Hybrid%20Encryption.md )
-- [ Digital Signatures ]( ./Sections/Digital%20Signatures.md )
+- [ Cryptographic Libraries ]( ./Sections/Libraries )
+- [ Symmetric Encryption ]( ./Sections/Symmetric%20Encryption )
+- [ Message Authentication ]( ./Sections/Message%20Authentication )
+- [ Random Numbers ]( ./Sections/Random%20Numbers )
+- [ Hashing ]( ./Sections/Hashing )
+- [ Key Exchange / Hybrid Encryption ]( ./Sections/Hybrid%20Encryption )
+- [ Digital Signatures ]( ./Sections/Digital%20Signatures )
 - **Key Derivation**
-    - [ Password Based ]( ./Sections/Key%20Derivation%20-%20Password.md )
-    - [ Non-Password ]( ./Sections/Key%20Derivation%20-%20NonPassword.md )
+    - [ Password Based ]( ./Sections/Key%20Derivation%20-%20Password )
+    - [ Non-Password ]( ./Sections/Key%20Derivation%20-%20NonPassword )
 - **Key Sizes**
-    - [ Symmetric ]( ./Sections/Symmetric%20Keys.md )
-    - [ Asymmetric ]( ./Sections/Asymmetric%20Keys.md )
+    - [ Symmetric ]( ./Sections/Symmetric%20Keys )
+    - [ Asymmetric ]( ./Sections/Asymmetric%20Keys )
 
 ---
 

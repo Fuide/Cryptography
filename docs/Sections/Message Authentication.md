@@ -20,7 +20,7 @@
 [ HMAC ]: https://en.wikipedia.org/wiki/HMAC
 [ HMAC SHA3 256 ]: https://en.wikipedia.org/wiki/SHA-3
 
-[ Length Extension Attack ]: https://en.wikipedia.org/wiki/Length_extension_attack
+[ Length Extension Attacks ]: https://en.wikipedia.org/wiki/Length_extension_attack
 [ Poly1305 ]: https://doc.libsodium.org/advanced/poly1305
 [ CBC-MAC ]: https://en.wikipedia.org/wiki/CBC-MAC
 [ Weird Requirements ]: https://en.wikipedia.org/wiki/CBC-MAC#Security_with_fixed_and_variable-length_messages
@@ -30,6 +30,8 @@
 [ RFC9106 ]: https://www.rfc-editor.org/rfc/rfc9106.html#name-introduction
 
 [ Overview ]: ../Overview
+[ Symmetric Encryption ]: ./Symmetric%20Encryption
+[ Symmetric Key Size ]: ./Symmetric%20Keys
 
 
 # Message Authentication Codes
@@ -45,34 +47,46 @@
 
 <br>
 
-### [Keyed BLAKE2b-256][ Generated Hashing ] | [keyed BLAKE2b-512][ Generated Hashing ]
+### [ Keyed BLAKE2b ( 256 | 512 ) ][ Generated Hashing ]
 
-These are faster than **HMAC**, **BLAKE** (what **BLAKE2** was on) received a [significant amount of cryptanalysis][ Analysis ],<br>even more than Keccak (the **SHA3** finalist), as part of the **SHA3** competition, and **BLAKE2b** provides the<br>[same practical level of security][ Same Security ] as **SHA3** whilst also being more popular in software<br>(e.g. it’s used in [Argon2][ RFC9106 ] and many [other][ Blake 2 ] password hashing schemes).
+- Faster than **HMAC**, **BLAKE** (what **BLAKE2** was on)
+- Provides the [same practical level of security][ Same Security ] as **SHA3**
+- Popular in software ([Argon2][ RFC9106 ] and many [other][ Blake 2 ] password hashing schemes)
+- Received a [significant amount of cryptanalysis][ Analysis ],<br>
+  even more than **Keccak** (the **SHA3** finalist),<br>
+  as part of the **SHA3** competition
 
 ---
 
-### [HMAC-SHA256][ HMAC SHA256 ] | [HMAC-SHA512][ HMAC SHA256 ]
+### [ HMAC SHA ( 256 | 512 ) ][ HMAC SHA256 ]
 
 Slower and older than **BLAKE2b** but [well-studied][ SHA2 Studied ].
 
-**SHA2** is also faster and far more available than **SHA3**, which has<br>seen somewhat limited adoption so far since **SHA2** is still secure.
+**SHA2** is also faster and far more available than **SHA3**, which has<br>
+seen somewhat limited adoption so far since **SHA2** is still secure.
 
 ---
 
-### [HMAC-SHA3-256][ HMAC SHA3 256 ] | [HMAC-SHA3-512][ HMAC SHA3 256 ]
+### [ HMAC SHA3 ( 256 | 512 ) ][ HMAC SHA3 256 ]
 
-**SHA3** is [slower][ SHA 3 Slow ] in software than **BLAKE2b** and **SHA2** but has a [higher security margin][ SHA 3 Security ] than both and is [fast][ SHA 3 Fast ] in hardware.
+- **SHA3** is [slower][ SHA 3 Slow ] than **BLAKE2b** and **SHA2** in software
+- But has a [higher security margin][ SHA 3 Security ] than both
+- And is [fast][ SHA 3 Fast ] in hardware.
 
-Moreover, **HMAC-SHA3** is needlessly inefficient because **SHA3** is already a **8MAC**.
+Moreover, **HMAC-SHA3** is needlessly inefficient because **SHA3** is already a **MAC**.
 
-The only reason I’m recommending **HMAC-SHA3** is because **SHA3** is designed to be a replacement for **SHA2**,<br>**KMAC** is rarely available, and you shouldn't have to construct a MAC using concatenation yourself in most scenarios.
+The only reason I’m recommending **HMAC-SHA3** is because **SHA3** is designed to be<br>
+a replacement for **SHA2**, **KMAC** is rarely available, and you shouldn't have to<br>
+construct a **MAC** using concatenation yourself in most scenarios.
 
 ---
 
-### [Keyed BLAKE3-256][ Blake 3 ]
+### [Keyed BLAKE3 256][ Blake 3 ]
 
-[Faster][ Blake 3 Spec ] than **HMAC**, **BLAKE2b**, and **SHA3**, but it has a [smaller security margin][ Blake 3 Spec ],<br>
-only targets the [128-bit security level][ Blake 3 Spec ], and hasn't been implemented in many<br> cryptographic libraries yet.
+- [Faster][ Blake 3 Spec ] than **HMAC**, **BLAKE2b**, and **SHA3**
+- But it has a [smaller security margin][ Blake 3 Spec ]
+- Only targets the [`128-bit security`][ Blake 3 Spec ] level
+- And hasn't been implemented in many cryptographic libraries yet
 
 
 <br>
@@ -84,7 +98,7 @@ only targets the [128-bit security level][ Blake 3 Spec ], and hasn't been imple
 
 <br>
 
-### [HMAC-MD5][ HMAC Security ] | [HMAC-SHA1][ HMAC ]
+### HMAC ( [MD5][ HMAC Security ] | [SHA1][ HMAC ] )
 
 **MD5** and **SHA1** should no longer be used for anything.
 
@@ -108,17 +122,25 @@ For example, with a stream cipher, you could flip bits in the ciphertext hash.
 
 ---
 
-### `SHA2( key || message )`
+### `SHA2( Key || Message )`
 
-This is **vulnerable** to [length extension attacks][ Length Extension Attack ], as discussed in point 3 of the Notes in the [Hashing](./Hashing) section.
+This is **vulnerable** to [ Length Extension Attacks ], as<br>
+discussed in point **3** of the Notes in the [Hashing](./Hashing) section.
 
-Technically speaking, `SHA2(message || key)` works as a **MAC*** if the attacker doesn’t know the key,<br>but it’s weaker than constructions like **HMAC** because it requires the hash function to be collision<br>resistant rather than a pseudorandom function and therefore shouldn’t be used.
+Technically speaking, `SHA2(message || key)` works as a **MAC*** if the attacker<br>
+doesn’t know the key, but it’s weaker than constructions like **HMAC** because it<br>
+requires the hash function to be collision resistant rather than a<br>
+pseudorandom function and therefore shouldn’t be used.
 
-Newer hash functions, like **BLAKE2b**, **SHA3**, and **BLAKE3**, are resistant to length extension attacks<br>and could be used to perform `Hash(key || message)` safely, but you should still just use a keyed<br>hash function or HMAC instead to do the work for you.
+Newer hash functions, like **BLAKE2b**, **SHA3**, and **BLAKE3**, are resistant to<br>
+length extension attacks and could be used to perform `Hash(key || message)`<br>
+safely, but you should still just use a keyed hash function or HMAC instead<br>
+to do the work for you.
 
 ---
 
-### [Poly1305][ Poly1305 ] | Polynomial MACs
+### [Poly1305][ Poly1305 ]
+**And Other Polynomial MACs**
 
 These produce small tags that are designed for online protocols and small messages.
 
@@ -136,20 +158,24 @@ Even when implemented correctly, the recommended algorithms are better.
 
 ### [CMAC/OMAC][ CMAC ]
 
-Almost nobody uses this, even though it improves on CBC-MAC in terms of preventing mistakes.
+Almost nobody uses this, even though it improves<br>
+on **CBC-MAC** in terms of preventing mistakes.
 
 ---
 
-### 128-bit [Keyed Hashes][ Keyed Hashes ] | [HMACs][ HMAC ]
+### 128-bit ( [ Keyed Hashes ] | [ HMACs ][ HMAC ] )
 
 **You shouldn’t go below a 256-bit output** with hash functions<br>
-because 128-bit security should be the minimum.
+because `128-bit security` should be the minimum.
 
 ---
 
 ### [KMAC][ KMAC ]
 
-Whilst more efficient than **HMAC-SHA3**, it seems to be rarely available. Furthermore, it’s likely that<br>**HMAC-SHA3** will be the norm because **SHA3** is designed to replace **SHA2**, which is used with **HMAC**.
+Whilst more efficient than **HMAC-SHA3**, it seems to be rarely available.
+
+Furthermore, it’s likely that **HMAC-SHA3** will be the norm because<br>
+**SHA3** is designed to replace **SHA2**, which is used with **HMAC**.
 
 
 <br>
@@ -161,26 +187,37 @@ Whilst more efficient than **HMAC-SHA3**, it seems to be rarely available. Furth
 
 <br>
 
-1. **Please read** points **14** - **17** of the [Symmetric Encryption](./Symmetric%20Encryption) Notes for guidance on implementing a MAC correctly.
+1. **Please read** points **14** - **17** of the [ Symmetric Encryption ]<br>
+    notes for guidance on implementing a **MAC** correctly.
 
 ---
 
-2. **Please read** point **2** of the [Symmetric Key Size](./Symmetric%20Keys) Use section for guidance on what key size to use.
+2. **Please read** point **2** of the [ Symmetric Key Size ]<br>
+    Use section for guidance on what key size to use.
 
 ---
 
 3. A **256-bit** authentication tag is sufficient for most use cases<br><br>
-However, a **512-bit** tag provides additional security if you’re concerned about quantum computing.<br><br>
-I wouldn’t recommend bothering with an output length in-between (e.g. **HMAC-SHA384**) because<br>
-that’s not common, and you may as well go all the way to get a `256-bit security` level.
+    However, a **512-bit** tag provides additional security<br>
+    if you’re concerned about quantum computing.<br><br>
+    I wouldn’t recommend bothering with an output length in-between<br>
+    (**HMAC-SHA384**) because that’s not common, and you may as well<br>
+    go all the way to get a `256-bit security` level.
 
 ---
 
-4. Append the authentication tag to the ciphertext: this is common practice and how **AEADs** operate.
+4. Append the authentication tag to the ciphertext:<br><br>
+    This is common practice and how **AEADs** operate.
 
 ---
 
 5. Concatenating multiple variable length parameters can lead to **attacks**<br><br>
-`HMAC( message : additionalData || ciphertext , key : macKey )`<br><br>
+`HMAC( Message : AdditionalData || Ciphertext , Key : MacKey )`<br><br>
 If you fail to concatenate the lengths of the parameters<br><br>
-`HMAC( message : additionalData || ciphertext || additionalDataLength || ciphertextLength , key : macKey )`<br><br>with the lengths converted to a fixed number of bytes consistently in either big- or little-endian, regardless of the endianness of the machine) or always ensure that they are fixed in size, then your implementation will be susceptible to [canonicalization attacks][ Canonicalization Attack ] because an attacker can shift bytes in the different parameters whilst producing a valid authentication tag. AEADs do this length concatenation for you to prevent this.
+`HMAC( Message : AdditionalData || Ciphertext || AdditionalDataLength || CiphertextLength , Key : MacKey )`<br><br>
+with the lengths converted to a fixed number of bytes consistently in either<br>
+big- or little-endian, regardless of the endianness of the machine) or always<br>
+ensure that they are fixed in size, then your implementation will be susceptible<br>
+to [canonicalization attacks][ Canonicalization Attack ] because an attacker can shift bytes in the different<br>
+parameters whilst producing a valid authentication tag.<br>
+<br>**AEADs** do this length concatenation for you to prevent this.

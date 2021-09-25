@@ -1,12 +1,14 @@
 
 [ Libsodium ]: https://doc.libsodium.org/
-[ Audits ]: https://www.privateinternetaccess.com/blog/libsodium-v1-0-12-and-v1-0-13-security-assessment/
-[ C++ Requirements ]: https://support.microsoft.com/sl-si/topic/the-latest-supported-visual-c-downloads-2647da03-1eea-4433-9aff-95f26a218cc0
+[ Libsodium Audit ]: https://www.privateinternetaccess.com/blog/libsodium-v1-0-12-and-v1-0-13-security-assessment/
+[ Visual C++ Redistributable ]: https://support.microsoft.com/sl-si/topic/the-latest-supported-visual-c-downloads-2647da03-1eea-4433-9aff-95f26a218cc0
 [ Monocypher ]: https://monocypher.org/
 [ Monocypher Audit ]: https://monocypher.org/quality-assurance/audit
 [ Monocypher Speed ]: https://monocypher.org/speed
-[ SecretBox ]: https://doc.libsodium.org/secret-key_cryptography/secretbox
-[ Secret Stream ]: https://doc.libsodium.org/secret-key_cryptography/secretstream
+
+[ secretbox() ]: https://doc.libsodium.org/secret-key_cryptography/secretbox
+[ secretstream() ]: https://doc.libsodium.org/secret-key_cryptography/secretstream
+
 [ Tink ]: https://developers.google.com/tink
 [ LibHydrogen ]: https://libhydrogen.org
 [ Professional Mistakes ]: https://github.com/agl/ed25519/issues/27
@@ -35,46 +37,69 @@
 <br>
 <br>
 <br>
+<br>
 
 ## **Recommended** 「 In Order 」
 
-<br>
+---
 
-### [Libsodium][ Libsodium ]
+### [ Libsodium ]
 
 - Modern
 - Extremely fast
 - Easy to use
 - Well documented
 
-[Audited][ Audits ] library that covers all common use cases, except for implementing TLS.<br>
-However, it’s much bigger than Monocypher, meaning it’s harder to audit and not<br>suitable for constrained environments, and sometimes requires the<br>
-[Visual C++ Redistributable][ C++ Requirements ] to work on Windows.
+[Audited][ Libsodium Audit ] library that covers all common use cases besides implementing **TLS**.<br>
+
+However, it’s much bigger than **Monocypher**, which makes it<br>
+harder to audit and thus not suitable for constrained environments.
+
+<!-- Sometimes? -->
+Sometimes it also requires the [ Visual C++ Redistributable ] to work on Windows.
 
 ---
 
-### [Monocypher][ Monocypher ]
+### [ Monocypher ]
 
 - Modern
 - Easy to use
 - Well documented
 
-[Audited][ Monocypher Audit ] library, but it’s about [half][ Monocypher Speed ] the speed of libsodium on desktops/servers, has no misuse resistant<br>
-functions (e.g. like libsodium’s [secretstream()][ Secret Stream ] and [secretbox()][ SecretBox ]), only supports Argon2i for password hashing,<br>
-allowing for insecure parameters (please see the [Password Hashing/Password-Based Key Derivation](./Key%20Derivation%20-%20Password) Notes section),<br>
-and offers no memory locking, random number generation, or convenience functions (e.g. Base64/hex encoding, padding, etc).<br><br>
-However, it’s compatible with libsodium whilst being much smaller,<br>
-portable, and fast for constrained environments (e.g microcontrollers).
+[Audited][ Monocypher Audit ] library, but it’s about [half][ Monocypher Speed ] the speed of **Libsodium** on desktops / servers.
+
+Has no misuse resistant functions **Libsodium’s** [ secretstream() ] and [ secretbox() ].
+
+Only supports **Argon2i** for password hashing, allowing for insecure parameters<br>
+(please see the [Password Hashing/Password-Based Key Derivation](./Key%20Derivation%20-%20Password) Notes section)
+
+Offers no
+
+- Memory Locking
+- Random Number Generation
+- Base64 / Hex Encoding, Padding, ..
+
+However, it’s compatible with **Libsodium** whilst being
+
+- Fast
+- Small
+- Portable
+
+making it useful for ***constrained environments*** like microcontrollers.
 
 ---
 
-### [Tink][ Tink ]
+### [ Tink ]
 
-A misuse resistant library that prevents common pitfalls like nonce reuse. <br><br>However, it doesn’t support hashing or password hashing, it’s not available<br>in as many programming languages as **Libsodium** and **Monocypher**, and it<br>provides access to some algorithms that you shouldn’t use.
+A misuse resistant library that prevents common pitfalls like nonce reuse.
+
+However, it doesn’t support *hashing* or *password hashing*, it’s not available<br>
+in as many programming languages as **Libsodium** and **Monocypher**, and it<br>
+provides *access to some algorithms that you* ***shouldn’t*** *use*.
 
 ---
 
-### [LibHydrogen][ LibHydrogen ]
+### [ LibHydrogen ]
 
 - Lightweight
 - Easy to use
@@ -82,49 +107,79 @@ A misuse resistant library that prevents common pitfalls like nonce reuse. <br><
 - Well documented
 - Suitable for most environments
 
-The downsides are that it's not compatible with **Libsodium** whilst also running [slower][ Monocypher Speed ] than **Monocypher**.<br>
-However, it has some advantages over **Monocypher** like support for random number generation, even<br>
-on **Arduino** boards, and easy access to key exchange patterns, among other things.
+The downsides are that it's not compatible with<br>
+**Libsodium** whilst also running [slower][ Monocypher Speed ] than **Monocypher**.
 
+However, it has some advantages over **Monocypher** like support<br>
+for *random number generation*, even on **Arduino** boards,<br>and *easy access to key exchange patterns*, among other things.
+
+---
+
+<br>
 <br>
 <br>
 <br>
 
 ## **Avoid** 「 In Order 」
 
-<br>
+---
 
-### A random library (with 0 stars) on GitHub
+### Random Github Libraries
 
-Assuming it’s not been written by an experienced professional and it’s not a **Libsodium** or **Monocypher** [binding][ NSEC ]<br>to another programming language, you should generally stay away from unpopular, unaudited libraries.
+`With 0 stars`
 
-They are much more likely to suffer from vulnerabilities and be significantly slower than the more popular,<br> audited libraries. Also, note that even [experienced professionals make mistakes][ Professional Mistakes ].
+Assuming it’s not been written by an experienced professional and isn't a<br>
+[**Libsodium** / **Monocypher** binding][ NSEC ] to another programming language,<br>
+you should probably not use it.
+
+Generally try to stay away from ***unpopular*** / ***unaudited*** libraries, as they<br>
+are much more likely to be ***significantly slower*** and suffer from<br>
+***vulnerabilities*** than the more *popular*, *audited* libraries.
+
+Also, note that even [**experienced professionals** make mistakes][ Professional Mistakes ].
 
 ---
 
-### [OpenSSL][ OpenSSL ]
+### [ OpenSSL ]
 
-Very difficult to use, let alone use correctly, offers access to algorithms that you shouldn't use,<br>the documentation is a mess, and lots of [vulnerabilities][ OpenSSL Vulnerabilities ] have been found over the years.
+- Difficult to use / to use correctly
+- The documentation is a mess
+- Many [vulnerabilities][ OpenSSL Vulnerabilities ] have been found over the years
+- Offers access to algorithms that you shouldn't use
 
-These issues have led to **OpenSSL** [forks][ OpenSSL Forks ] and new, non-forked [libraries][ BearSSL ]<br>that aim to be better alternatives if you need to implement **TLS**.
-
----
-
-### The library available in your [programming language][ Programming Language ]
-
-Most languages provide access to old algorithms (e.g. **MD5** and **SHA1**) that shouldn’t be used anymore instead<br>of newer ones (e.g. **BLAKE2**, **BLAKE3**, and **SHA3**), which can lead to poor algorithm choices. Furthermore, the APIs<br>are typically easy to misuse, the documentation may fail to mention important security related information, and<br>the implementations will be slower than libsodium.
+These issues have led to **OpenSSL** [forks][ OpenSSL Forks ] and new, non-forked [libraries][ BearSSL ]<br>
+that aim to be better alternatives in case you need to implement **TLS**.
 
 ---
 
-### Other popular libraries ( [BouncyCastle][ Bouncy Castle ] | [CryptoJS][ CryptoJS ] | .. )
+### The Library In Your [ Programming Language ]
 
-These again often provide or rely on dated algorithms and typically have bad documentation.
+Most languages provide access to old algorithms like **MD5** and **SHA1**,<br>
+that shouldn’t be used anymore, instead of newer ones such as<br>
+**BLAKE2**, **BLAKE3** and **SHA3**, which can lead to poor algorithm choices.
 
-For instance, **CryptoJS** uses an [insecure][ CryptoJS Insecure ] **KDF** called [EVP_BytesToKey()][ EVP_BytesToKey ] in **OpenSSL** when you<br>pass a string password to `AES.encrypt()`, and **BouncyCastle** has no **C#** documentation.
+Furthermore
 
-However, this recommendation is too broad really since there are *some* libraries that I haven't mentioned<br>that are worth using, like [PASETO][ PASETO ]. Therefore, as a rule of thumb, **if it doesn't include several of the<br>algorithms I recommend in this document, then it's probably bad**.
+- The ***APIs*** are typically easy to misuse
+- The documentation may fail to mention important security related information
+- And the implementations will likely be slower than **Libsodium**.
 
-Just do your research and assess the quality of the documentation.
+---
+
+### 〔 [ Bouncy Castle ] 〕〔 [ CryptoJS ] 〕
+**And other popular libraries**
+
+These again often provide or rely on *dated algorithms* and typically have *bad documentation*.
+
+For instance, **CryptoJS** uses an [insecure][ CryptoJS Insecure ] **KDF** called [EVP_BytesToKey()][ EVP_BytesToKey ] in **OpenSSL** when you<br>
+pass a string password to `AES.encrypt()`, and **BouncyCastle** has no **C#** documentation.
+
+However, this recommendation is too broad. Since there are *some* libraries that I haven't<br>
+mentioned that are worth using, like [PASETO][ PASETO ], you can go with as a rule of thumb:
+
+`If it doesn't include several of the algorithms I recommend, then it's probably bad`
+
+*Just do your research and assess the quality of the documentation.*
 
 ---
 
@@ -132,21 +187,22 @@ Just do your research and assess the quality of the documentation.
 
 - Unmaintained
 - Less modern
-- More confusing version of libsodium and Monocypher
+- More confusing version of **Libsodium** and **Monocypher**
 
-For example, `crypto_sign()` for digital signatures has been [experimental][ NaCL Experimental ] for several years.<br>
-It also doesn’t have password hashing support and is supposedly [difficult to install / package][ Monocypher Why ].
+For example, `crypto_sign()` for digital signatures has been [experimental][ NaCL Experimental ] for *several years*.<br>
+It also doesn’t have *password hashing* support and is supposedly [difficult to install / package][ Monocypher Why ].
 
 ---
 
 ### [TweetNaCl][ TweetNaCl ]
 
 - Unmaintained
-- [Slower][ Monocypher Speed ] than Monocypher
+- [Slower][ Monocypher Speed ] than **Monocypher**
 - Doesn’t offer access to newer algorithms
-- Doesn’t have password hashing
+- Doesn’t have *password hashing**
 - [Doesn’t zero out buffers][ Monocypher Why ]
 
+<br>
 <br>
 <br>
 <br>
@@ -155,7 +211,7 @@ It also doesn’t have password hashing support and is supposedly [difficult to 
 
 <br>
 
-1. If the library you’re currently using/planning to use doesn’t support several of the algorithms I’m recommending,<br>then it’s time to upgrade and take advantage of the improved security and performance benefits available to you if you switch.
+1. If the library you’re currently using/planning to use doesn’t support several of the algorithms I’m recommending, then it’s time to upgrade and take advantage of the improved security and performance benefits available to you if you switch.
 
 ---
 
@@ -165,7 +221,7 @@ Don’t immediately jump into coding something because that’s how mistakes are
 ---
 
 3. Some libraries release unauthenticated plaintext when using **AEADs**<br><br>
-For example, **OpenSSL** and **BouncyCastle** [apparently do][ Gotchas ].<br>Firstly, don’t use these libraries for this reason and the reasons I’ve already listed. Secondly<br>**never do anything with unauthenticated plaintext; ignore it to be safe**.
+For example, **OpenSSL** and **BouncyCastle** [apparently do][ Gotchas ]. Firstly, don’t use these libraries for this reason and the reasons I’ve already listed. Secondly **never do anything with unauthenticated plaintext; ignore it to be safe**.
 
 ---
 

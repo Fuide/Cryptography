@@ -64,7 +64,7 @@ For example:
         <td><b>C#</b></td>
         <td><a href = 'https://docs.microsoft.com/en-us/dotnet/api/system.random.next?view=net-5.0'>Random.Next()</a></td>
     </tr>
-<table>
+</table>
 
 <br>
 

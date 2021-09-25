@@ -22,5 +22,5 @@ and the like, please consider the following:
 
 - If you want to implement / prototype your idea:
     - Fork the [ Repository ]
-    - Let someone know about it ([ Discussions ] | Optional / Appreciated)
+    - Let someone know about it in [ Discussions ] ( Optional / Recommended )
     - Once you're done, open a [ Pull Request ]

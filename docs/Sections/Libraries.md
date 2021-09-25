@@ -30,9 +30,11 @@
 [ Gotchas ]: https://github.com/SalusaSecondus/CryptoGotchas
 [ Post Quantum Cryptography ]: https://csrc.nist.gov/projects/post-quantum-cryptography
 
+[ Overview ]: ../Overview
 
 
 # Cryptographic Libraries
+##### 「[ Overview ]」
 
 <br>
 <br>
@@ -175,7 +177,7 @@ For instance, **CryptoJS** uses an [insecure][ CryptoJS Insecure ] **KDF** calle
 pass a string password to `AES.encrypt()`, and **BouncyCastle** has no **C#** documentation.
 
 However, this recommendation is too broad. Since there are *some* libraries that I haven't<br>
-mentioned that are worth using, like [PASETO][ PASETO ], you can go with as a rule of thumb:
+mentioned that are worth using, like [PASETO][ PASETO ], you can go with this rule of thumb:
 
 `If it doesn't include several of the algorithms I recommend, then it's probably bad`
 
@@ -224,9 +226,9 @@ Good libraries have high quality documentation that will<br>explain potential se
 ---
 
 3. Some libraries release unauthenticated plaintext when using **AEADs**<br><br>
-For example, **OpenSSL** and **BouncyCastle** [apparently do][ Gotchas ].<br><br>
+For example, [ **OpenSSL** and **BouncyCastle** apparently do][ Gotchas ].<br><br>
 Firstly, don’t use these libraries for this reason and the reasons I’ve already listed.<br>
-Secondly **never do anything with unauthenticated plaintext; ignore it to be safe**.
+Secondly, **never do anything with unauthenticated plaintext, ignore it to be safe**.
 
 ---
 

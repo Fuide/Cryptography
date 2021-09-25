@@ -7,8 +7,11 @@
 [ Math Random ]: https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Math/random
 [ Math Next ]: https://docs.microsoft.com/en-us/dotnet/api/system.random.next?view=net-5.0
 
+[ Overview ]: ../Overview
+
 
 # Random Numbers
+##### 「[ Overview ]」
 
 <br>
 <br>

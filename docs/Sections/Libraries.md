@@ -233,7 +233,7 @@ Secondly **never do anything with unauthenticated plaintext; ignore it to be saf
 4. Older does not mean better<br><br>
 You can argue that older algorithms are more battle tested and therefore proven to be<br>
 a safe choice, but the reality is that most modern algorithms, like **ChaCha20**, **BLAKE2**,<br>
-and **Argon2**, have been properly analysed at this point and shown to offer security and<br>
+and **Argon2**, have been properly analyzed at this point and shown to offer security and<br>
 performance benefits over their older counterparts.<br><br>
 Therefore, it doesn’t make sense to stick to this overly cautious mindset of<br>
 avoiding newer algorithms, except for algorithms that are still candidates<br>
@@ -242,7 +242,9 @@ further analysis to be considered safe.
 
 ---
 
-5. You should prioritise speed<br><br>
+5. You should prioritize speed<br><br>
 This can make a noticeable difference for the user.<br><br>
-For example, a **C#*** **Argon2** library is not going to even come close to the speed of **Argon2**<br>in **Libsodium**, meaning unnecessary and unwanted extra delay during key derivation.<br><br>**Libsodium** is the go-to for speed on desktops / servers, and **Monocypher**<br>
+For example, a **C#** **Argon2** library is not going to even come close to the speed of **Argon2**<br>
+in **Libsodium**, meaning unnecessary and unwanted extra delay during key derivation.<br>
+<br>**Libsodium** is the go-to for speed on desktops / servers, and **Monocypher**<br>
 is the go-to for constrained environments (e.g. microcontrollers).

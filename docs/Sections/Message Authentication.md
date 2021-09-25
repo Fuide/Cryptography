@@ -127,7 +127,7 @@ For example, with a stream cipher, you could flip bits in the ciphertext hash.
 This is **vulnerable** to [ Length Extension Attacks ], as<br>
 discussed in point **3** of the Notes in the [Hashing](./Hashing) section.
 
-Technically speaking, `SHA2(message || key)` works as a **MAC*** if the attacker<br>
+Technically speaking, `SHA2(message || key)` works as a **MAC** if the attacker<br>
 doesn’t know the key, but it’s weaker than constructions like **HMAC** because it<br>
 requires the hash function to be collision resistant rather than a<br>
 pseudorandom function and therefore shouldn’t be used.
@@ -187,34 +187,58 @@ Furthermore, it’s likely that **HMAC-SHA3** will be the norm because<br>
 
 <br>
 
-1. **Please read** points **14** - **17** of the [ Symmetric Encryption ]<br>
-    notes for guidance on implementing a **MAC** correctly.
+「 **1** 」
+
+**Please read** points **14** - **17** of the [ Symmetric Encryption ]<br>
+notes for guidance on implementing a **MAC** correctly.
 
 ---
 
-2. **Please read** point **2** of the [ Symmetric Key Size ]<br>
-    Use section for guidance on what key size to use.
+「 **2** 」
+
+**Please read** point **2** of the [ Symmetric Key Size ]<br>
+Use section for guidance on what key size to use.
 
 ---
 
-3. A **256-bit** authentication tag is sufficient for most use cases<br><br>
-    However, a **512-bit** tag provides additional security<br>
-    if you’re concerned about quantum computing.<br><br>
-    I wouldn’t recommend bothering with an output length in-between<br>
-    (**HMAC-SHA384**) because that’s not common, and you may as well<br>
-    go all the way to get a `256-bit security` level.
+「 **3** 」
+
+A **256-bit** authentication tag is sufficient for most use cases<br><br>
+However, a **512-bit** tag provides additional security<br>
+if you’re concerned about quantum computing.<br><br>
+I wouldn’t recommend bothering with an output length in-between<br>
+(**HMAC-SHA384**) because that’s not common, and you may as well<br>
+go all the way to get a `256-bit security` level.
 
 ---
 
-4. Append the authentication tag to the ciphertext:<br><br>
-    This is common practice and how **AEADs** operate.
+「 **4** 」
+
+Append the authentication tag to the ciphertext:<br><br>
+This is common practice and how **AEADs** operate.
 
 ---
 
-5. Concatenating multiple variable length parameters can lead to **attacks**<br><br>
-`HMAC( Message : AdditionalData || Ciphertext , Key : MacKey )`<br><br>
-If you fail to concatenate the lengths of the parameters<br><br>
-`HMAC( Message : AdditionalData || Ciphertext || AdditionalDataLength || CiphertextLength , Key : MacKey )`<br><br>
+「 **5** 」
+
+Concatenating multiple variable length parameters can lead to **attacks**
+
+```
+HMAC(
+    Key : MacKey,
+    Message : AdditionalData | Ciphertext
+)
+```
+
+If you fail to concatenate the lengths of the parameters
+
+```
+HMAC(
+    Key : MacKey,
+    Message : AdditionalData | Ciphertext | AdditionalDataLength | CiphertextLength
+)
+```
+
 with the lengths converted to a fixed number of bytes consistently in either<br>
 big- or little-endian, regardless of the endianness of the machine) or always<br>
 ensure that they are fixed in size, then your implementation will be susceptible<br>

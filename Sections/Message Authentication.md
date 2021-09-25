@@ -41,7 +41,7 @@
 <br>
 
 
-## Use 「 Ordered 」
+## **Use** 「 In Order 」
 
 <br>
 
@@ -80,7 +80,7 @@ only targets the [128-bit security level][ Blake 3 Spec ], and hasn't been imple
 <br>
 
 
-## Avoid 「 Unordered | All Unsuitable 」
+## **Avoid** 「 Unordered | All Unsuitable 」
 
 <br>
 
@@ -157,7 +157,7 @@ Whilst more efficient than **HMAC-SHA3**, it seems to be rarely available. Furth
 <br>
 
 
-## Notes
+## **Notes**
 
 <br>
 

@@ -14,7 +14,7 @@
 <br>
 
 
-## Use 「 Unordered | Distinct Use-Cases 」
+## **Recommended** 「 Unordered | Distinct Use-Cases 」
 
 <br>
 
@@ -41,7 +41,7 @@ This ensures that the key size doesn't decrease the security provided by the **M
 <br>
 
 
-## Avoid 「 Ordered 」
+## **Avoid** 「 In Order 」
 
 <br>
 

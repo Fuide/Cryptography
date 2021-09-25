@@ -1,3 +1,4 @@
+
 [ General Hashing ]: https://doc.libsodium.org/hashing/generic_hashing
 [ IRL Secure ]: https://eprint.iacr.org/2019/1492.pdf
 [ Significant Analysis ]: https://nvlpubs.nist.gov/nistpubs/ir/2012/NIST.IR.7896.pdf
@@ -38,7 +39,7 @@
 <br>
 <br>
 
-## Use 「 Ordered 」
+## **Recommended** 「 In Order 」
 
 <br>
 
@@ -83,7 +84,7 @@ the cryptographic library you use, this isn’t necessarily something you’ll n
 <br>
 <br>
 
-## Avoid 「 Unordered | All Unsuitable 」
+## **Avoid** 「 Unordered | All Unsuitable 」
 
 <br>
 
@@ -145,7 +146,7 @@ You shouldn’t go below a **256-bit** output with hash functions to ensure **12
 <br>
 <br>
 
-## Notes
+## **Notes**
 
 <br>
 

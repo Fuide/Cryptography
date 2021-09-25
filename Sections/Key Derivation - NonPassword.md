@@ -27,7 +27,7 @@
 <br>
 <br>
 
-## Use 「 Ordered 」
+## **Recommended** 「 In Order 」
 
 ### [Salted BLAKE2b][ Key Derivation ]
 [Restricted][ Blake 2 ] to a **128-bit** salt and **128-bit** (16 character) personalization parameter for domain separation,<br>
@@ -63,7 +63,7 @@ a custom **KDF** implementation as explained in point 1 above.
 <br>
 <br>
 
-## Avoid 「 Unordered | All Unsuitable 」
+## **Avoid** 「 Unordered | All Unsuitable 」
 
 ### Regular (salted or unsalted) hash functions
 
@@ -93,7 +93,7 @@ as input and output a **256-bit** key, and are very rarely used, except in the c
 <br>
 <br>
 
-#### Notes
+#### **Notes**
 
 <br>
 

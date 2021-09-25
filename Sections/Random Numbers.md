@@ -14,7 +14,7 @@
 <br>
 <br>
 
-## Use 「 Ordered 」
+## **Recommended** 「 In Order 」
 
 <br>
 
@@ -39,7 +39,7 @@ This should be **a last resort** because it’s hard to erase keys properly.
 <br>
 <br>
 
-## Avoid 「 Unordered | All Unsuitable 」
+## **Avoid** 「 Unordered | All Unsuitable 」
 
 <br>
 

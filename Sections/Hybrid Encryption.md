@@ -1,3 +1,4 @@
+
 [ Curve25519 ]: https://en.wikipedia.org/wiki/Curve25519
 [ Curve448 ]: https://en.wikipedia.org/wiki/Curve448
 [ Pre Shared Keys ]: https://en.wikipedia.org/wiki/Pre-shared_key
@@ -48,7 +49,7 @@
 <br>
 <br>
 
-## Use 「 Ordered 」
+## **Recommended** 「 In Order 」
 
 ### [Curve25519/X25519][ Curve25519 ]
 
@@ -81,7 +82,7 @@ to be public and can therefore be easily shared.
 <br>
 <br>
 
-## Avoid 「 Unordered | All Unsuitable 」
+## **Avoid** 「 Unordered | All Unsuitable 」
 
 <br>
 
@@ -145,7 +146,7 @@ For now, if post-quantum security is a goal, then use a pre-shared symmetric key
 <br>
 <br>
 
-## Notes
+## **Notes**
 
 <br>
 

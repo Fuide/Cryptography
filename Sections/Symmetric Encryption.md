@@ -117,7 +117,7 @@
 <br>
 
 
-## Use 「 Ordered 」
+## **Recommended** 「 In Order 」
 
 <br>
 
@@ -208,7 +208,7 @@ although I strongly recommend the above algorithms instead regardless.
 <br>
 
 
-## Avoid 「 Unordered | All Unsuitable 」
+## **Avoid** 「 Unordered | All Unsuitable 」
 
 <br>
 
@@ -329,7 +329,7 @@ on their own (without a **MAC**) because **authentication is extremely important
 <br>
 
 
-#### Notes
+#### **Notes**
 
 <br>
 
@@ -417,7 +417,7 @@ on their own (without a **MAC**) because **authentication is extremely important
 <br>
 
 
-#### Discussion
+#### **Discussion**
 
 <br>
 

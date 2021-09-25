@@ -48,7 +48,7 @@
 <br>
 <br>
 
-## Use 「 Ordered 」
+## **Recommended** 「 In Order 」
 
 <br>
 
@@ -110,7 +110,7 @@ with the **PBKDF2** output as the input keying material (**IKM**) to derive more
 <br>
 <br>
 
-## Avoid 「 Unordered | All Unsuitable 」
+## **Avoid** 「 Unordered | All Unsuitable 」
 
 <br>
 
@@ -196,7 +196,7 @@ or you consider side-channel attacks to be a viable threat because **Argon2id** 
 <br>
 <br>
 
-## Notes
+## **Notes**
 
 <br>
 

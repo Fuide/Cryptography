@@ -36,7 +36,7 @@
 <br>
 <br>
 
-## Use 「 Ordered 」
+## **Recommended** 「 In Order 」
 
 <br>
 
@@ -90,7 +90,7 @@ on **Arduino** boards, and easy access to key exchange patterns, among other thi
 <br>
 <br>
 
-## Avoid 「 Ordered 」
+## **Avoid** 「 In Order 」
 
 <br>
 
@@ -151,7 +151,7 @@ It also doesn’t have password hashing support and is supposedly [difficult to 
 <br>
 <br>
 
-## Notes
+## **Notes**
 
 <br>
 

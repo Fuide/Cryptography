@@ -14,7 +14,7 @@
 <br>
 <br>
 
-## Use 「 Ordered 」
+## **Recommended** 「 In Order 」
 
 ### 256-bit
 
@@ -50,7 +50,7 @@ However, seriously **don’t use RSA!**
 <br>
 <br>
 
-## Avoid 「 Unordered | All Unsuitable 」
+## **Avoid** 「 Unordered | All Unsuitable 」
 
 ### 1024-bit
 

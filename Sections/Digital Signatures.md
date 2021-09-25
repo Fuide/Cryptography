@@ -43,7 +43,7 @@
 <br>
 <br>
 
-## Use 「 Ordered 」
+## **Recommended** 「 In Order 」
 
 ### [Ed25519][ Ed25519 ]
 
@@ -61,7 +61,7 @@ for the curve, meaning a `224-bit security` level.
 <br>
 <br>
 
-## Avoid 「 Unordered | All Unsuitable 」
+## **Avoid** 「 Unordered | All Unsuitable 」
 
 ### [Plain RSA][ Plain RSA ] | [RSA-PSS][ Probabilistic Signature ] | [RSA-PKCS#1 v1.5][ RSA Padding ]
 
@@ -130,7 +130,7 @@ However, eventually it will make sense to switch to one in the future.
 <br>
 <br>
 
-## Notes
+## **Notes**
 
 <br>
 

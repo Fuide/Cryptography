@@ -3,10 +3,6 @@
 [ Fast Key Erasure ]: https://blog.cr.yp.to/20170723-random.html
 [ CHACHA20 Random ]: https://github.com/WebAssembly/wasi-libc/blob/main/libc-top-half/sources/arc4random.c
 
-[ Math.random() ]: https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Math/random
-[ Random.Next() ]: https://docs.microsoft.com/en-us/dotnet/api/system.random.next?view=net-5.0
-[ Random() ]: https://docs.oracle.com/javase/8/docs/api/java/util/Random.html
-
 [ Overview ]: ../Overview
 
 
@@ -51,14 +47,26 @@ This should be ***a last resort*** because it’s hard to erase keys properly.
 ### Non-CSPRNG
 **Non-cryptographically secure** pseudo random number generator
 
+<br>
+
 For example:
 
-|                |                   |
-|----------------|-------------------|
-| **JavaScript** | [ Math.random() ] |
-| **Java**       | [ Random() ]      |
-| **C#**         | [ Random.Next() ] |
+<table>
+    <tr>
+        <td><b>JavaScript</b></td>
+        <td><a href = 'https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Math/random'>Math.random()</a></td>
+    </tr>
+    <tr>
+        <td><b>Java</b></td>
+        <td><a href = 'https://docs.oracle.com/javase/8/docs/api/java/util/Random.html'>Random()</a></td>
+    </tr>
+    <tr>
+        <td><b>C#</b></td>
+        <td><a href = 'https://docs.microsoft.com/en-us/dotnet/api/system.random.next?view=net-5.0'>Random.Next()</a></td>
+    </tr>
+<table>
 
+<br>
 
 ***These are not secure and should not be used for anything related to security***.
 

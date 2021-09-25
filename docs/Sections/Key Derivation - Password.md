@@ -315,3 +315,11 @@ because it means an additional secret is required, making a bruteforce more diff
 For instance, a keyfile in [file][ Key File ] / [disk][ Disk ] encryption software acts as a pepper, which improves<br>
 the security of the key derivation assuming that the keyfile is stored correctly<br>
 (e.g. on an encrypted memory stick away from the encrypted file/disk).
+
+
+---
+
+<br>
+<br>
+
+##### 「[ Overview ]」

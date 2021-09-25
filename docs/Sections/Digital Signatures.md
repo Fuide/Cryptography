@@ -196,3 +196,10 @@ or using a cryptographic library that implements the algorithm with some random<
 data in the calculation of the nonce, which is the technique used by [Signal][ Signal ].<br><br>
 However, these countermeasures are [not guaranteed to be effective][ Not Guaranteed ]<br>
 and there can be other [side-channel attacks][ Side Channel Attack ] as well.
+
+---
+
+<br>
+<br>
+
+##### 「[ Overview ]」

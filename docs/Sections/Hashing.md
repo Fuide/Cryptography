@@ -151,6 +151,8 @@ If you want to use something from the **SHA3** competition, then consider:
 ### 〔 [ Whirlpool ] 〕  〔 [SHA224][ SHA Comparison ] 〕  〔 [ Streetbog ] 〕  〔 [ MD6 ] 〕
 **And Other Uncommonly Used Hashes**
 
+<br>
+
 *These are all worse in one way or another than the<br>*
 *recommended algorithms, which is why they aren't used.*
 
@@ -261,3 +263,10 @@ as none of these are susceptible to [ Length Extension Attacks ].
 
 Also, please read point **5** of the [Message Authentication Codes](./Message%20Authentication) notes as<br>
 concatenating parameters incorrectly ***can lead to another type of attack***.
+
+---
+
+<br>
+<br>
+
+##### 「[ Overview ]」

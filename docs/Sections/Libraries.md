@@ -250,3 +250,11 @@ For example, a **C#** **Argon2** library is not going to even come close to the 
 in **Libsodium**, meaning unnecessary and unwanted extra delay during key derivation.<br>
 <br>**Libsodium** is the go-to for speed on desktops / servers, and **Monocypher**<br>
 is the go-to for constrained environments (e.g. microcontrollers).
+
+
+---
+
+<br>
+<br>
+
+##### 「[ Overview ]」

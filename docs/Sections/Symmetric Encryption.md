@@ -459,3 +459,10 @@ So when should you use an AEAD? Exceptions to my Encrypt-then-MAC recommendation
 ---
 
 2. You’re not comfortable implementing Encrypt-then-MAC: if there’s no decent library you can use (e.g. Tink isn’t available in your language) or copy code from (make sure you respect the code license!), then you’re more likely to implement an AEAD correctly. However, implementing the fix I recommend for partitioning oracle attacks (please see point 9 of the Notes), which affect online password-based encryption scenarios, requires knowing how to use a MAC, so at that point, you may as well use Encrypt-then-MAC, especially if you’re storing data long-term. The lack of key commitment could also *theoretically* lead to data loss even when partitioning oracle attacks aren't a threat (e.g. in offline scenarios), meaning you should also implement the fix if that concerns you, like Amazon has for their [Encryption SDK][ Best Practices ]. With enough research and attention to detail, Encrypt-then-MAC can be implemented correctly by anyone.
+
+---
+
+<br>
+<br>
+
+##### 「[ Overview ]」

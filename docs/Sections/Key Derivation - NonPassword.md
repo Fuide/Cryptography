@@ -125,3 +125,10 @@ deriving a single key (e.g. from a shared secret), then you should use a random 
 The [RFC][ RFC5869 ] explains that using a random salt adds to the security of the scheme.<br>
 The authors recommend a salt as long as the hash output length, but a **128-bit** or **256-bit**<br>
 salt is sufficient. Using a secret salt (a bit like a [pepper][ Pepper ] further improves the security guarantees.
+
+---
+
+<br>
+<br>
+
+##### 「[ Overview ]」

@@ -75,3 +75,10 @@ because such attacks are **not** practical in the real world.
 You should ideally use **ChaCha20** instead of **AES** anyway since<br>
 it has a higher security margin and runs in constant time, avoiding<br>
 timing attacks, as explained in the [Symmetric Encryption](./Symmetric%20Encryption) Use section.
+
+---
+
+<br>
+<br>
+
+##### 「[ Overview ]」

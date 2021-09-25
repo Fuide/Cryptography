@@ -199,7 +199,7 @@ It also doesn’t have *password hashing* support and is supposedly [difficult t
 - Unmaintained
 - [Slower][ Monocypher Speed ] than **Monocypher**
 - Doesn’t offer access to newer algorithms
-- Doesn’t have *password hashing**
+- Doesn’t have *password hashing*
 - [Doesn’t zero out buffers][ Monocypher Why ]
 
 <br>
@@ -211,24 +211,38 @@ It also doesn’t have *password hashing* support and is supposedly [difficult t
 
 <br>
 
-1. If the library you’re currently using/planning to use doesn’t support several of the algorithms I’m recommending, then it’s time to upgrade and take advantage of the improved security and performance benefits available to you if you switch.
+1. If the library you’re currently using/planning to use doesn’t support several of the<br>
+algorithms I’m recommending, then it’s time to upgrade and take advantage of the<br>
+improved security and performance benefits available to you if you switch.
 
 ---
 
 2. Please read the documentation<br><br>
-Don’t immediately jump into coding something because that’s how mistakes are made.<br>Good libraries have high quality documentation that will explain potential security pitfalls and how to avoid them.
+Don’t immediately jump into coding something because that’s how mistakes are made.<br><br>
+Good libraries have high quality documentation that will<br>explain potential security pitfalls and how to avoid them.
 
 ---
 
 3. Some libraries release unauthenticated plaintext when using **AEADs**<br><br>
-For example, **OpenSSL** and **BouncyCastle** [apparently do][ Gotchas ]. Firstly, don’t use these libraries for this reason and the reasons I’ve already listed. Secondly **never do anything with unauthenticated plaintext; ignore it to be safe**.
+For example, **OpenSSL** and **BouncyCastle** [apparently do][ Gotchas ].<br><br>
+Firstly, don’t use these libraries for this reason and the reasons I’ve already listed.<br>
+Secondly **never do anything with unauthenticated plaintext; ignore it to be safe**.
 
 ---
 
 4. Older does not mean better<br><br>
-You can argue that older algorithms are more battle tested and therefore proven to be a safe choice,<br>but the reality is that most modern algorithms, like **ChaCha20**, **BLAKE2**, and **Argon2**, have been properly analysed at this point and<br>shown to offer security and performance benefits over their older counterparts. Therefore, it doesn’t make sense to stick to this<br>overly cautious mindset of avoiding newer algorithms, except for algorithms that are still candidates in a [competition][ Post Quantum Cryptography ]<br>(e.g. new post-quantum algorithms), which do need further analysis to be considered safe.
+You can argue that older algorithms are more battle tested and therefore proven to be<br>
+a safe choice, but the reality is that most modern algorithms, like **ChaCha20**, **BLAKE2**,<br>
+and **Argon2**, have been properly analysed at this point and shown to offer security and<br>
+performance benefits over their older counterparts.<br><br>
+Therefore, it doesn’t make sense to stick to this overly cautious mindset of<br>
+avoiding newer algorithms, except for algorithms that are still candidates<br>
+in a [competition][ Post Quantum Cryptography ] (e.g. new post-quantum algorithms), which do need<br>
+further analysis to be considered safe.
 
 ---
 
 5. You should prioritise speed<br><br>
-This can make a noticeable difference for the user. For example, a **C#*** **Argon2** library is not going to even<br>come close to the speed of **Argon2** in **Libsodium**, meaning unnecessary and unwanted extra delay during key derivation. **Libsodium**<br>is the go-to for speed on desktops / servers, and **Monocypher** is the go-to for constrained environments (e.g. microcontrollers).
+This can make a noticeable difference for the user.<br><br>
+For example, a **C#*** **Argon2** library is not going to even come close to the speed of **Argon2**<br>in **Libsodium**, meaning unnecessary and unwanted extra delay during key derivation.<br><br>**Libsodium** is the go-to for speed on desktops / servers, and **Monocypher**<br>
+is the go-to for constrained environments (e.g. microcontrollers).

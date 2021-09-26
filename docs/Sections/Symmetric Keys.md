@@ -22,15 +22,20 @@
 
 ### 256-bit
 
-There’s essentially no reason not to use **256-bit** keys for symmetric encryption.<br>
+There’s essentially no reason not to use **256-bit** keys for symmetric encryption.
+
+
 This is the only available key size for most **(X)ChaCha20** and **(X)Salsa20** implementations,<br>
-it’s the key size that’s used for [top secret material][ Key Length 6 ] by intelligence agencies and governments,<br> and it’s [now recommended][ Key Length 3 ] for long-term storage due to concerns surrounding<br>quantum computers being able to bruteforce **128-bit** keys.
+it’s the key size that’s used for [top secret material][ Key Length 6 ] by intelligence agencies and governments,<br>
+and it’s [now recommended][ Key Length 3 ] for long-term storage due to concerns surrounding quantum<br>
+computers being able to bruteforce **128-bit** keys.
 
 ---
 
 ### 512-bit
 
-If you’re using a **MAC** like **HMAC-SHA512** or keyed **BLAKE2b-512**, then you should use a **512-bit** key.
+If you’re using a **MAC** like **HMAC-SHA512** or keyed<br>
+**BLAKE2b-512**, then you should use a **512-bit** key.
 
 This helps with domain separation when deriving keys, and it’s recommended to always use<br>
 a key size as large as the output length for **HMAC** (e.g. a **256-bit** key for **HMAC-SHA256**).
@@ -53,10 +58,10 @@ This won’t stand the test of time and in some cases can already be bruteforced
 
 ---
 
-### Symmetric Encryption + Large Keys ([Threefish][ Threefish ])
+### Symmetric Encryption + Large Keys
+**Such As [ Threefish ]**
 
-Anything over **256-bit** is widely regarded as unnecessary.
-
+Anything over **256-bit** is currently regarded as unnecessary.<br>
 Furthermore, encryption algorithms supporting such key sizes are very unpopular in practice.
 
 Note that the situation is different for **MACs**, as explained in point **2** of the Use section above.

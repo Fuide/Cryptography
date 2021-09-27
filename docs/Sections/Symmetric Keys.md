@@ -37,8 +37,8 @@ computers being able to bruteforce **128-bit** keys.
 If you’re using a **MAC** like **HMAC-SHA512** or keyed<br>
 **BLAKE2b-512**, then you should use a **512-bit** key.
 
-This helps with domain separation when deriving keys, and it’s recommended to always use<br>
-a key size as large as the output length for **HMAC** (e.g. a **256-bit** key for **HMAC-SHA256**).
+This helps with domain separation when deriving keys, and it’s recommended to always<br>
+use a key size as large as the output length for **HMAC** (**256-bit** key for **HMAC-SHA256**).
 
 This ensures that the key size doesn't decrease the security provided by the **MAC**.
 

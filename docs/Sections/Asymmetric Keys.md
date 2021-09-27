@@ -41,10 +41,11 @@ The key size for **X448**, which provides a `224-bit security` level.
 ### 3072-bit / 4096-bit
 
 **If you’re forced to use RSA**, then the minimum key size should be **3072-bit**,<br>
-which is the key size [currently used by the NSA][ Key Length 6 ] and recommended by ECRYPT<br>
+which is the key size [currently used by the NSA][ Key Length 6 ] and recommended by **ECRYPT**<br>
 for [near term protection][ Key Length 3 ].<br>
-<br>
-The maximum should be **4096-bit** because the performance is really bad after that.<br>
+
+The maximum should be **4096-bit** because the performance is really bad after that.
+
 However, seriously **don’t use RSA!**
 
 

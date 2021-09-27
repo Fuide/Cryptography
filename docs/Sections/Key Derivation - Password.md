@@ -80,7 +80,7 @@ as possible to reach a suitable delay for your use case, such as:
 
 ### [ Scrypt ]
 
-`N=32768, r=8, p=1 and higher`
+`N = 32768` `r = 8` `p = 1+`
 
 The parameters are more confusing and less scalable<br>
 than **Argon2**, and it’s susceptible to [ Cache Timing Attack ].
@@ -452,7 +452,7 @@ makes more sense for the reason I explained above.
 By contrast, for key derivation, using a **pepper** is a great idea if possible because<br>
 it means an additional secret is required, making a bruteforce more difficult.
 
-For instance, a keyfile in [file][ Key File ] / [ Disk ] encryption software acts as a **pepper**,<br>
+For instance, a keyfile in [File][ Key File ] / [ Disk ] encryption software acts as a **pepper**,<br>
 which improves the security of the key derivation assuming that the keyfile<br>
 is stored correctly (on an encrypted memory stick away from the encrypted file / disk).
 

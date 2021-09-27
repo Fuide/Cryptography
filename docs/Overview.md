@@ -20,6 +20,8 @@
 [ Professional Mistakes ]: https://github.com/agl/ed25519/issues/27
 [ Missed Mistakes ]: https://github.com/str4d/rage/issues/195
 
+[ License ]: https://creativecommons.org/licenses/by-sa/4.0/
+
 
 ## Background
 

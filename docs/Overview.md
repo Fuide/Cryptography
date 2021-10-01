@@ -26,6 +26,9 @@
 [ License ]: https://creativecommons.org/licenses/by-sa/4.0/
 
 [ Contact Me ]: https://github.com/samuel-lucas6/Cryptography-Guidelines/issues
+[ This Version ]: https://github.com/Fuide/Cryptography
+[ Original Git ]: https://github.com/samuel-lucas6/Cryptography-Guidelines
+[ Original ]: https://github.com/samuel-lucas6/Cryptography-Guidelines
 
 [ Blog ]: https://soatok.blog/
 
@@ -80,7 +83,6 @@ more experience would be beneficial,
 
 ##### **If I've made a mistake, please [ Contact Me ] to get it fixed**.
 
-<br>
 <br>
 <br>
 
@@ -195,14 +197,15 @@ implementations are quite difficult to understand.
 ## Concluding Remarks
 
 I believe there are **three main areas of improvement** when it comes<br>
-to individuals with experience in cryptography helping developers:
+to individuals with experience in cryptography helping developers.
 
 <br>
 
-### Cryptographic libraries
+### Cryptographic Libraries
 **Should** Be Better
 
-Most don’t make it easy to use cryptography safely (e.g. they support insecure algorithms, require nonces, etc) and have [horrible documentation][ Horrible Documentation ].
+Most don’t make it easy to use cryptography safely (they support insecure<br>
+    algorithms, require nonces, etc) and have [ Horrible Documentation ].
 
 <br>
 
@@ -247,10 +250,14 @@ and even when someone writes a custom cipher,<br>
 ### Peer Reviews
 **Should** Be Done More Often
 
+<br>
+
 It's often:
 - Difficult to receive peer review
 - Impossible to fund a bug bounty program with cash rewards
 - And extremely unlikely for projects to get funding for a code audit.
+
+<br>
 
 Whilst developers who fail to do any reading related to cryptography<br>
 obviously deserve criticism, [Even Experienced Professionals Make Mistakes][ Professional Mistakes ].
@@ -260,3 +267,16 @@ helps catch things that are easy to spot, and more thorough peer review helps<br
 catch things that even someone experienced [Might Have Missed][ Missed Mistakes ].
 
 **If something seems dodgy, then you should investigate if possible.**
+
+<br>
+
+---
+
+<br>
+
+### Thank you
+For reading this guide, if you found it useful, ***consider visiting the [ Original Git ]***.
+
+`I hope you liked my edits / formatting`
+
+**Please consider sharing** [ This Version ] or the [ Original ] so others can find them easier.

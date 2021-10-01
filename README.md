@@ -11,6 +11,6 @@
 
 ---
 
-This is a **formatted** version of the 「[ Cryptography Guidelines ]」
+This is a **edited / formatted** version of the 「[ Cryptography Guidelines ]」
 
 ---

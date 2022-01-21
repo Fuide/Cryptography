@@ -259,7 +259,7 @@ encrypting a certain amount of data using the same key.
 **Don’t use any algorithm with a block size less than 128-bits**.
 
 Algorithms like **DES** and **3DES** are also very old<br>
-and have small key sizes that shouldn’t be used.
+and have small key sizes that aren't secure.
 
 ---
 
@@ -314,7 +314,7 @@ rely on `MAC ➜ Encrypt`, and **AES-SIV** uses **CMAC**.
 
 If you need nonce-misuse resistance, then you should ideally use `XCHACHA20 ➜ MAC`<br>
 or **XChaCha20-Poly1305** with a randomly generated nonce or a nonce derived alongside<br>
-a subkey for encryption using a **MAC**, as described [here][ Nonce Resistance ] and [here][ Short Nonces ].
+a subkey for encryption using a **KDF** or **MAC**, as described [here][ Nonce Resistance ] and [here][ Short Nonces ].
 
 If this isn’t possible for some reason, then use **AES-GCM-SIV**.
 
@@ -327,8 +327,8 @@ has [better diffusion and performance][ CHACHA ].
 
 However, **(X)Salsa20** is still [very secure][ Salsa20 Analysis ].
 
-Also, as mentioned in point **4**, you shouldn’t use **(X)Salsa20** or **(X)ChaCha20**<br>
-on their own (without a **MAC**) because **authentication is extremely important**.
+Also, as mentioned in point **4**, you shouldn’t use **(X)Salsa20** <br>
+on it's own (without a **MAC**) because **authentication is extremely important**.
 
 
 <br>

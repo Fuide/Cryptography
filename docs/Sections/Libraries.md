@@ -29,6 +29,8 @@
 [ TweetNaCl ]: https://tweetnacl.cr.yp.to/
 [ Gotchas ]: https://github.com/SalusaSecondus/CryptoGotchas
 [ Post Quantum Cryptography ]: https://csrc.nist.gov/projects/post-quantum-cryptography
+[ AES Encrypt ]: https://cryptojs.gitbook.io/docs/#ciphers
+[ Crypto Sign ]: https://nacl.cr.yp.to/sign.html
 
 [ Overview ]: ../Overview
 
@@ -57,8 +59,7 @@
 However, it’s much bigger than **Monocypher**, which makes it<br>
 harder to audit and thus not suitable for constrained environments.
 
-<!-- Sometimes? -->
-Sometimes it also requires the [ Visual C++ Redistributable ] to work on Windows.
+It also requires the [ Visual C++ Redistributable ] to work on Windows.
 
 ---
 
@@ -93,7 +94,7 @@ making it useful for ***constrained environments*** like microcontrollers.
 
 ### [ Tink ]
 
-A misuse resistant library that prevents common pitfalls like nonce reuse.
+A misuse resistant library that prevents common pitfalls, like nonce reuse.
 
 However, it doesn’t support *hashing* or *password hashing*, it’s not available<br>
 in as many programming languages as **Libsodium** and **Monocypher**, and it<br>
@@ -128,7 +129,7 @@ for *random number generation*, even on **Arduino** boards,<br>and *easy access 
 
 ### Random Github Libraries
 
-`With 0 stars`
+`➜ With 0 stars`
 
 Assuming it’s not been written by an experienced professional and isn't a<br>
 [**Libsodium** / **Monocypher** binding][ NSEC ] to another programming language,<br>
@@ -173,8 +174,8 @@ Furthermore
 
 These again often provide or rely on *dated algorithms* and typically have *bad documentation*.
 
-For instance, **CryptoJS** uses an [insecure][ CryptoJS Insecure ] **KDF** called [EVP_BytesToKey()][ EVP_BytesToKey ] in **OpenSSL** when you<br>
-pass a string password to `AES.encrypt()`, and **BouncyCastle** has no **C#** documentation.
+For instance, **CryptoJS** uses an [insecure][ CryptoJS Insecure ] **KDF** called [`EVP_BytesToKey()`][ EVP_BytesToKey ] in **OpenSSL** when you<br>
+pass a string password to [`AES.encrypt()`][ AES Encrypt ], and **BouncyCastle** has no **C#** documentation.
 
 However, this recommendation is too broad. Since there are *some* libraries that I haven't<br>
 mentioned that are worth using, like [PASETO][ PASETO ], you can go with this rule of thumb:
@@ -191,7 +192,7 @@ mentioned that are worth using, like [PASETO][ PASETO ], you can go with this ru
 - Less modern
 - More confusing version of **Libsodium** and **Monocypher**
 
-For example, `crypto_sign()` for digital signatures has been [experimental][ NaCL Experimental ] for *several years*.<br>
+For example, [`crypto_sign()`][ Crypto Sign ] for digital signatures has been [experimental][ NaCL Experimental ] for *several years*.<br>
 It also doesn’t have *password hashing* support and is supposedly [difficult to install / package][ Monocypher Why ].
 
 ---
@@ -246,7 +247,7 @@ further analysis to be considered safe.
 
 5. You should prioritize speed<br><br>
 This can make a noticeable difference for the user.<br><br>
-For example, a **C#** **Argon2** library is not going to even come close to the speed of **Argon2**<br>
+For example, a **C#** **Argon2** library is going to significantly slower than **Argon2**<br>
 in **Libsodium**, meaning unnecessary and unwanted extra delay during key derivation.<br>
 <br>**Libsodium** is the go-to for speed on desktops / servers, and **Monocypher**<br>
 is the go-to for constrained environments (e.g. microcontrollers).

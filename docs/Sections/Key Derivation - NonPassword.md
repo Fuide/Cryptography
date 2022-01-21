@@ -31,7 +31,8 @@
 
 ### [Salted BLAKE2b][ Key Derivation ]
 
-[Restricted][ Blake 2 ] to a **128-bit** salt and **128-bit** (16 chars) personalization<br>parameter for domain separation, which is annoying.
+[Restricted][ Blake 2 ] to a **128-bit** salt and **128-bit** (16 chars) personalization<br>
+parameter for domain separation, which is annoying.
 
 However, you can feed more context information into the message parameter.
 

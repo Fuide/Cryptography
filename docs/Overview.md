@@ -39,7 +39,7 @@ This document outlines recommendations for ***cryptographic algorithm choices***
 parameters as well as ***important implementation details*** based on what I have<br>
 learned from reading about the subject and the consensus I have observed online.
 
-*Note that some knowledge of cryptography may be required*<br>
+*Note that some knowledge of cryptography is required*<br>
 *to understand the terminology used in this guide.*
 
 **Goal**<br>

@@ -33,6 +33,33 @@
 [ Blog ]: https://soatok.blog/
 
 
+
+<div align='center'>
+    <p>
+        <b>⦗ <a href='https://fuide.github.io/Cryptography/docs/Sections/Libraries'>Libraries</a> ⦘</b> 
+        <b>⦗ <a href='https://fuide.github.io/Cryptography/docs/Sections/Random%20Numbers'>Random Numbers</a> ⦘</b> 
+        <b>⦗ <a href='https://fuide.github.io/Cryptography/docs/Sections/Hashing'>Hashing</a> ⦘</b> 
+        <b>⦗ <a href='https://fuide.github.io/Cryptography/docs/Sections/Digital%20Signatures'>Digital Signatures</a> ⦘</b><br>
+        <b>⦗ <a href='https://fuide.github.io/Cryptography/docs/Sections/Hybrid%20Encryption'>Key Exchange / Hybrid Encryption</a> ⦘</b> 
+        <b>⦗ <a href='https://fuide.github.io/Cryptography/docs/Sections/Symmetric%20Encryption'>Symmetric Encryption</a> ⦘</b> 
+        <b>⦗ <a href='https://fuide.github.io/Cryptography/docs/Sections/Message%20Authentication'>Message Authentication</a> ⦘</b> 
+    </p>
+    <b>Ｋｅｙ　Ｄｅｒｉｖａｔｉｏｎ</b>
+    <p>
+        <b>⦗ <a href='https://fuide.github.io/Cryptography/docs/Sections/Key%20Derivation%20-%20Password'>Password Based</a> ⦘</b> 
+        <b>⦗ <a href='https://fuide.github.io/Cryptography/docs/Sections/Key%20Derivation%20-%20NonPassword'>Non-Password Based</a> ⦘</b>
+    </p>
+    <b>Ｋｅｙ　Ｓｉｚｅ</b>
+    <p>
+        <b>⦗ <a href='https://fuide.github.io/Cryptography/docs/Sections/Symmetric%20Keys'>Symmetric</a> ⦘</b> 
+        <b>⦗ <a href='https://fuide.github.io/Cryptography/docs/Sections/Asymmetric%20Keys'>Asymmetric</a> ⦘</b>
+    </p>
+</div>
+
+
+---
+
+
 ## Background
 
 This document outlines recommendations for ***cryptographic algorithm choices*** and<br>
@@ -173,24 +200,6 @@ Whilst a select few algorithms are relatively simple to implement, like [HKDF][ 
 
 It also doesn't help that most academic papers and reference<br>
 implementations are quite difficult to understand.
-
----
-
-## Overview
-
-- [ Cryptographic Libraries ]( ./Sections/Libraries )
-- [ Symmetric Encryption ]( ./Sections/Symmetric%20Encryption )
-- [ Message Authentication ]( ./Sections/Message%20Authentication )
-- [ Random Numbers ]( ./Sections/Random%20Numbers )
-- [ Hashing ]( ./Sections/Hashing )
-- [ Key Exchange / Hybrid Encryption ]( ./Sections/Hybrid%20Encryption )
-- [ Digital Signatures ]( ./Sections/Digital%20Signatures )
-- **Key Derivation**
-    - [ Password Based ]( ./Sections/Key%20Derivation%20-%20Password )
-    - [ Non-Password ]( ./Sections/Key%20Derivation%20-%20NonPassword )
-- **Key Sizes**
-    - [ Symmetric ]( ./Sections/Symmetric%20Keys )
-    - [ Asymmetric ]( ./Sections/Asymmetric%20Keys )
 
 ---
 

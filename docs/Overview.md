@@ -38,11 +38,13 @@
     <p>
         <b>⦗ <a href='https://fuide.github.io/Cryptography/docs/Sections/Libraries'>Libraries</a> ⦘</b> 
         <b>⦗ <a href='https://fuide.github.io/Cryptography/docs/Sections/Random%20Numbers'>Random Numbers</a> ⦘</b> 
-        <b>⦗ <a href='https://fuide.github.io/Cryptography/docs/Sections/Hashing'>Hashing</a> ⦘</b> 
-        <b>⦗ <a href='https://fuide.github.io/Cryptography/docs/Sections/Digital%20Signatures'>Digital Signatures</a> ⦘</b><br>
-        <b>⦗ <a href='https://fuide.github.io/Cryptography/docs/Sections/Hybrid%20Encryption'>Key Exchange / Hybrid Encryption</a> ⦘</b> 
         <b>⦗ <a href='https://fuide.github.io/Cryptography/docs/Sections/Symmetric%20Encryption'>Symmetric Encryption</a> ⦘</b> 
+        <br>
+        <b>⦗ <a href='https://fuide.github.io/Cryptography/docs/Sections/Hashing'>Hashing</a> ⦘</b> 
+        <b>⦗ <a href='https://fuide.github.io/Cryptography/docs/Sections/Digital%20Signatures'>Digital Signatures</a> ⦘</b> 
         <b>⦗ <a href='https://fuide.github.io/Cryptography/docs/Sections/Message%20Authentication'>Message Authentication</a> ⦘</b> 
+        <br>
+        <b>⦗ <a href='https://fuide.github.io/Cryptography/docs/Sections/Hybrid%20Encryption'>Key Exchange / Hybrid Encryption</a> ⦘</b> 
     </p>
     <b>Ｋｅｙ　Ｄｅｒｉｖａｔｉｏｎ</b>
     <p>
